@@ -1,13 +1,20 @@
-<h1>/Course</h1>
+<h1><%= @course.title %></h1>
+
+<br />
 
 <p>
-  <b>Title</b><br>
-  <%= @course.title %>
+  <b>Offered by:</b>
+  <%= @course.offered_by %>
 </p>
 
 <p>
-  <b>Offered by</b><br>
-  <%= @course.offered_by %>
+  <b>Main topic:</b>
+    <%= @course.main_topic %>
+</p>
+
+<p>
+  <b>URL:</b>
+  <a href="<%= @course.url %>" target="_blank"><%= @course.url %></a>
 </p>
 
 <p>
@@ -16,19 +23,10 @@
 </p>
 
 <p>
-  <b>Url</b><br>
-  <%= @course.url %>
-</p>
-
-<p>
   <b>Syllabus</b><br>
   <%= @course.syllabus %>
 </p>
 
-<p>
-  <b>Main topic</b><br>
-  <%= @course.main_topic %>
-</p>
 
 <div class="form-actions">
   <%= link_to 'Back', courses_path, :class => 'btn'  %>

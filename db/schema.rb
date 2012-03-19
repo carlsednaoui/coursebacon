@@ -14,11 +14,11 @@ ActiveRecord::Schema.define(:version => 20120318223309) do
 
   create_table "courses", :force => true do |t|
     t.string   "title"
+    t.string   "url"
+    t.string   "main_topic"
     t.string   "offered_by"
     t.text     "description"
-    t.string   "url"
     t.text     "syllabus"
-    t.string   "main_topic"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
