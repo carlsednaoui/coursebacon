@@ -1,4 +1,19 @@
 <%= form_for @course, :html => { :class => 'form-inline' } do |f| %>
+
+	<% if @course.errors.any? %>
+		<div id="error_explanation" class="alert">
+			<h2><%= pluralize(@course.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+			<ul>
+				<% @course.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+
+
 	<fieldset>
 		<legend><%= controller.action_name.capitalize %> /Course</legend>
 
