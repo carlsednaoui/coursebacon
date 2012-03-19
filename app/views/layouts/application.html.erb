@@ -9,21 +9,34 @@
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
-	<body>
-		<div class="container-fluid">
-			<div class"row-fluid">
-				<h1><%= link_to "Home", :controller => "courses"%></h1>
-				<div class="span10">
+	 </head>
+	 <body>
 
-					<%= yield %>
+		 <div class="navbar">
+			 <div class="navbar-inner">
+				 <div class="container">
+					 <ul class="nav">
+						 <li><%= link_to "Home", :controller => "courses"%></li>
+					 </ul>
+				 </div>
+			 </div>
+		 </div>
 
-				</div>
+		 <div class="container-fluid">
+			 <div class"row-fluid">
+				 <div class="span10">
 
-				<div class="span2">
-					<h2>About CourseBacon </h2>
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
+					 <%= yield %>
+
+				 </div>
+
+				 <div class="span2">
+					 <h2>About</h2>
+					 <p>
+						CourseBacon's aim is to help you find the best online courses. Please add, rate and comment on any course you have already completed.
+					 </p>
+				 </div>
+			 </div>
+		 </div>
+	 </body>
+ </html>
