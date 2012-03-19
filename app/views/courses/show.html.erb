@@ -1,0 +1,37 @@
+<h1>/Course</h1>
+
+<p>
+  <b>Title</b><br>
+  <%= @course.title %>
+</p>
+
+<p>
+  <b>Offered by</b><br>
+  <%= @course.offered_by %>
+</p>
+
+<p>
+  <b>Description</b><br>
+  <%= @course.description %>
+</p>
+
+<p>
+  <b>Url</b><br>
+  <%= @course.url %>
+</p>
+
+<p>
+  <b>Syllabus</b><br>
+  <%= @course.syllabus %>
+</p>
+
+<p>
+  <b>Main topic</b><br>
+  <%= @course.main_topic %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', courses_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_course_path(@course), :class => 'btn' %>
+  <%= link_to 'Delete', course_path(@course), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
