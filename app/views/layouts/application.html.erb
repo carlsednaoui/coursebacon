@@ -37,6 +37,7 @@
 						 <li><%= link_to "Home", :controller => "courses"%></li>
 						 <li><%= link_to "Be Awesome - Submit a Course", new_course_path %></li>
 						 <% if current_user %>
+							 <li><%= link_to "Dashboard", "/dashboard" %></li>
 							 <li><%= link_to "Sign Out", signout_path %></li>
 						 <% else %>
 							 <li><%= link_to "Sign Up", "/sign-up" %></li>

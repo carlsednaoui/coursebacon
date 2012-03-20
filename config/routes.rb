@@ -1,4 +1,6 @@
 Coursebacon::Application.routes.draw do
+  get "dashboard/index"
+
   match "/sign-up" => "home#sign_up"
 
   resources :courses
@@ -6,6 +8,7 @@ Coursebacon::Application.routes.draw do
 
   root :to => "courses#index"
   #match "/" => "courses#index"
+  match "/dashboard" => "dashboard#index"
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout

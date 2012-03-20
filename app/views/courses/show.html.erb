@@ -20,7 +20,11 @@
 
 <p>
   <b>Description</b><br>
+<% if @course.description.eql? ""%>
+	N/A
+	<% else %>	
   <%= @course.description %>
+  <% end %>
 </p>
 
 

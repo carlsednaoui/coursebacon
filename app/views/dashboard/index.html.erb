@@ -1,0 +1,25 @@
+<h1>Courses You've Added to CourseBacon</h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Offered by</th>
+			<th>Subject</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @current_user_courses.each do |course| %>
+			<tr>
+				<td><%= link_to course.title, course_path(course) %></td>
+				<td><%= link_to course.offered_by, course_path(course) %></td>
+				<td><%= link_to course.main_topic, course_path(course) %></td>
+				<td>
+					<%= link_to 'Edit', edit_course_path(course), :class => 'btn btn-mini' %>
+					<%= link_to 'Destroy', course_path(course), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
