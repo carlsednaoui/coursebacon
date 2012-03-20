@@ -88,6 +88,6 @@ class CoursesController < ApplicationController
   end
 
  	def require_course_belongs_to_current_user
-		@course = current_user.rooms.find(params[:id])
+		@course = current_user.courses.find(params[:id])
 	end
 end
