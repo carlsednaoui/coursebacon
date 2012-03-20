@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
 
     before_filter :require_current_user, :except => [:index, :show]
+    before_filter :require_course_belongs_to_current_user, :only => [:edit, :update, :destroy]
 
   # GET /courses
   # GET /courses.json
@@ -85,4 +86,8 @@ class CoursesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+ 	def require_course_belongs_to_current_user
+		@course = current_user.rooms.find(params[:id])
+	end
 end
