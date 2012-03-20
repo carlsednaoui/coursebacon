@@ -11,9 +11,24 @@
 	<tbody>
 		<% @current_user_courses.each do |course| %>
 			<tr>
-				<td><%= link_to course.title, course_path(course) %></td>
-				<td><%= link_to course.offered_by, course_path(course) %></td>
-				<td><%= link_to course.main_topic, course_path(course) %></td>
+				<% if course.title.length > 40 %>
+					<td><%= link_to truncate(course.title , :length => 40), course_path(course) %></td>
+				<% else %>
+					<td><%= link_to course.title, course_path(course) %></td>
+				<% end %>
+
+				<% if course.offered_by.length > 40 %>
+					<td><%= link_to truncate(course.offered_by , :length => 40), course_path(course) %></td>
+				<% else %>
+					<td><%= link_to course.offered_by, course_path(course) %></td>
+				<% end %>
+
+				<% if course.main_topic.length > 40 %>
+					<td><%= link_to truncate(course.main_topic , :length => 40), course_path(course) %></td>
+				<% else %>
+					<td><%= link_to course.main_topic, course_path(course) %></td>
+				<% end %>
+
 				<td>
 					<%= link_to 'Edit', edit_course_path(course), :class => 'btn btn-mini' %>
 					<%= link_to 'Destroy', course_path(course), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
