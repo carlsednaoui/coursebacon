@@ -25,7 +25,13 @@
 
 <p>
   <b>Syllabus</b><br>
+  <% if @course.syllabus.eql? nil %>
+	  <p>
+	  N/A
+	  </p>
+  <% else %>
   <%= @course.syllabus %>
+  <% end %>
 </p>
 
 
