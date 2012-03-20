@@ -1,4 +1,6 @@
 Coursebacon::Application.routes.draw do
+  match "/sign_up" => "home#sign_up"
+
   resources :courses
 
   root :to => "courses#index"

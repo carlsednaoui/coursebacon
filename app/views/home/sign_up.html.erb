@@ -1,0 +1,9 @@
+<h1>Sign Up to Coursebacon</h1>
+	<br />
+<% if current_user %>
+	<%= link_to "Sign Out", signout_path %>
+<% else %>
+	<%= link_to "Sign in with Twitter", "/auth/twitter" %>
+	<br />
+	<%= link_to "Sign in with Facebook", "/auth/facebook" %>
+<% end %>
