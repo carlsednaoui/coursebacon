@@ -1,5 +1,5 @@
 Coursebacon::Application.routes.draw do
-  match "/sign_up" => "home#sign_up"
+  match "/sign-up" => "home#sign_up"
 
   resources :courses
   resources :identities

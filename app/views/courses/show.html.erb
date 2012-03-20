@@ -37,6 +37,8 @@
 
 <div class="form-actions">
   <%= link_to 'Back', courses_path, :class => 'btn'  %>
+	<% if @course.user == current_user %>
   <%= link_to 'Edit', edit_course_path(@course), :class => 'btn' %>
   <%= link_to 'Delete', course_path(@course), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+	<% end %>
 </div>

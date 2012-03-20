@@ -5,7 +5,9 @@
       <th>Title</th>
       <th>Offered by</th>
       <th>Subject</th>
+	<% if current_user %>
       <th>Actions</th>
+	<% end %>
     </tr>
   </thead>
   <tbody>
@@ -14,15 +16,22 @@
         <td><%= link_to course.title, course_path(course) %></td>
         <td><%= link_to course.offered_by, course_path(course) %></td>
         <td><%= link_to course.main_topic, course_path(course) %></td>
+
+	<% if course.user == current_user %>
         <td>
           <%= link_to 'Edit', edit_course_path(course), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', course_path(course), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>
+	<% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+	<% if current_user %>
 <%= link_to 'New', new_course_path, :class => 'btn btn-primary' %>
+	<% elsif %>
+<%= link_to 'Sign Up to Submit a Course', '/sign-up', :class => 'btn btn-primary' %>
+	<% end %>
 <br />
 <br />

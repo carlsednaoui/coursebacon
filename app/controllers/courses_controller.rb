@@ -1,4 +1,7 @@
 class CoursesController < ApplicationController
+
+    before_filter :require_current_user, :except => [:index, :show]
+
   # GET /courses
   # GET /courses.json
   def index
@@ -41,6 +44,8 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(params[:course])
+
+    @course.user = current_user
 
     respond_to do |format|
       if @course.save
