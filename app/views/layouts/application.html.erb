@@ -17,6 +17,7 @@
 				 <div class="container">
 					 <ul class="nav">
 						 <li><%= link_to "Home", :controller => "courses"%></li>
+						 <li><%= link_to "Be Awesome", new_course_path %></li>
 					 </ul>
 				 </div>
 			 </div>
@@ -25,11 +26,13 @@
 
 		 <!--Validation is below-->
 		 <div class="validation span12">
+			 <div class"row-fluid">
 			 <% flash.each do |key, value|%>
 				 <div id="flash_<%= key %>">
 					 <%= value %>
 				 </div>
 			 <% end %>
+		 </div>
 		 </div>
 		 <!--Validation is above-->
 
