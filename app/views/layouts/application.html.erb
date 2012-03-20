@@ -36,6 +36,12 @@
 					 <ul class="nav">
 						 <li><%= link_to "Home", :controller => "courses"%></li>
 						 <li><%= link_to "Be Awesome - Submit a Course", new_course_path %></li>
+						 <% if current_user %>
+							 <li><%= link_to "Sign Out", signout_path %></li>
+						 <% else %>
+							 <li><%= link_to "Sign in with Twitter", "/auth/twitter" %></li>
+							 <li><%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
+						 <% end %>
 					 </ul>
 				 </div>
 			 </div>
@@ -45,12 +51,14 @@
 		 <!--Validation is below-->
 		 <div class="validation span12">
 			 <div class"row-fluid">
-			 <% flash.each do |key, value|%>
-				 <div id="flash_<%= key %>">
-					 <%= value %>
+					 <% flash.each do |key, value|%>
+				 <div class="alert">
+						 <div id="flash_<%= key %>">
+							 <%= value %>
+						 </div>
 				 </div>
-			 <% end %>
-		 </div>
+					 <% end %>
+			 </div>
 		 </div>
 		 <!--Validation is above-->
 

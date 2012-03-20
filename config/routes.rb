@@ -1,7 +1,15 @@
 Coursebacon::Application.routes.draw do
   resources :courses
 
-  match "/" => "courses#index"
+  root :to => "courses#index"
+  #match "/" => "courses#index"
+
+
+  match "/auth/:provider/callback" => "sessions#create"
+  match "/signout" => "sessions#destroy", :as => :signout
+  match "/auth/twitter/callback" => "sessions#create"
+  match "/auth/facebook/callback" => "sessions#create"
+  match "/auth/failure" => "home#index"
 
 
   # The priority is based upon order of creation:
