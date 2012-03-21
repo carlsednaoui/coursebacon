@@ -1,10 +1,12 @@
 Coursebacon::Application.routes.draw do
+
   get "dashboard/index"
 
   match "/sign-up" => "home#sign_up"
 
   resources :courses
   resources :identities
+  resources :reviews
 
   root :to => "courses#index"
   #match "/" => "courses#index"

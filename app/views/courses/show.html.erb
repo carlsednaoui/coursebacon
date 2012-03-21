@@ -27,6 +27,16 @@
   <% end %>
 </p>
 
+<p>
+<b>Reviews</b><br>
+<% if @reviews.eql? []%>
+	N/A
+<% else %>
+	<% @reviews.each do |review| %>
+		<%= review.course_review %>
+	<% end %>
+<% end %>
+</p>
 
 <div class="form-actions">
   <%= link_to 'Back', courses_path, :class => 'btn'  %>
