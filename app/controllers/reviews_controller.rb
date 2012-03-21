@@ -27,6 +27,8 @@ class ReviewsController < ApplicationController
   # GET /reviews/new.json
   def new
     @review = Review.new
+    @review.user_id = params["user_id"]
+    @review.course_id = params["course_id"]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +45,8 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(params[:review])
+    @review.user_id = params["user_id"]
+    @review.course_id = params["course_id"]
 
     respond_to do |format|
       if @review.save

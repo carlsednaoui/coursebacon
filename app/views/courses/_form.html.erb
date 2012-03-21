@@ -1,7 +1,7 @@
 <%= form_for @course, :html => { :class => 'form-inline' } do |f| %>
 
 	<% if @course.errors.any? %>
-		<div id="error_explanation" class="alert">
+		<div class="alert">
 			<h2><%= pluralize(@course.errors.count, "error") %> prohibited this room from being saved:</h2>
 
 			<ul>

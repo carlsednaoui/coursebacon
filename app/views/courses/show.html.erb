@@ -32,11 +32,20 @@
 <% if @reviews.eql? []%>
 	N/A
 <% else %>
+	<ul>
 	<% @reviews.each do |review| %>
-		<%= review.course_review %>
+		<li><%= review.course_review %></li>
+		<br/>
 	<% end %>
+	</ul>
 <% end %>
 </p>
+
+<% if current_user %>
+	<%= link_to 'Submit a Course Review', new_review_path(:course_id => @course.id, :user_id => current_user.id), :class => "btn btn-primary" %>
+<% elsif %>
+	<%= link_to 'Sign In to Submit a Course Review', '/sign-up', :class => 'btn btn-primary' %>
+<% end %>
 
 <div class="form-actions">
   <%= link_to 'Back', courses_path, :class => 'btn'  %>

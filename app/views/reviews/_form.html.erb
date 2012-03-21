@@ -1,29 +1,36 @@
-<%= form_for(@review) do |f| %>
-  <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<br />
+<%= form_for @review, :html => { :class => 'form-vertical' } do |f| %>
+	<% if @review.errors.any? %>
+		<div class="alert">
+			<h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-      <ul>
-      <% @review.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+			<ul>
+				<% @review.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Review</legend>
+
+	<% f.number_field :user_id, :class => 'text_area span8' %>
+	<% f.number_field :course_id, :class => 'text_area span8' %>
+
+    <div class="control-group">
+      <%= f.label :course_review, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :course_review, :class => 'text_area span8' %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :course_id %><br />
-    <%= f.number_field :course_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :course_review %><br />
-    <%= f.text_area :course_review %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<input type="hidden" name="user_id" value="<%= current_user.id %>" />
+	<input type="hidden" name="course_id" value="<%= @review.course_id %>" /><br />
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', reviews_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>
