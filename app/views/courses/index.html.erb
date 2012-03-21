@@ -11,23 +11,9 @@
 	<tbody>
 		<% @courses.each do |course| %>
 			<tr>
-				<% if course.title.length > 40 %>
 					<td><%= link_to truncate(course.title , :length => 40), course_path(course) %></td>
-				<% else %>
-					<td><%= link_to course.title, course_path(course) %></td>
-				<% end %>
-
-				<% if course.offered_by.length > 40 %>
 					<td><%= link_to truncate(course.offered_by , :length => 40), course_path(course) %></td>
-				<% else %>
-					<td><%= link_to course.offered_by, course_path(course) %></td>
-				<% end %>
-
-				<% if course.main_topic.length > 40 %>
 					<td><%= link_to truncate(course.main_topic , :length => 40), course_path(course) %></td>
-				<% else %>
-					<td><%= link_to course.main_topic, course_path(course) %></td>
-				<% end %>
 
 				<% if course.user == current_user %>
 					<td>

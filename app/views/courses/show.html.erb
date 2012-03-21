@@ -34,8 +34,7 @@
 <% else %>
 	<ul>
 	<% @reviews.each do |review| %>
-		<li><%= review.course_review %></li>
-		<br/>
+		<div class="alert alert-success"><%= review.course_review %></div>
 	<% end %>
 	</ul>
 <% end %>
