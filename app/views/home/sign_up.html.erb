@@ -1,18 +1,22 @@
-<h1>Sign Up to Coursebacon</h1>
+<h1>Sign In to Coursebacon</h1>
 	<br />
 <% if current_user %>
 	<%= link_to "Sign Out", signout_path %>
 <% else %>
-	<%= link_to "Sign in with Twitter", "/auth/twitter" %>
+	<%= link_to "Sign In with Twitter", "/auth/twitter" %>
 	<br />
-	<%= link_to "Sign in with Facebook", "/auth/facebook" %>
+	<%= link_to "Sign In with Facebook", "/auth/facebook" %>
 
+	<br />
+	<br />
 	<br />
 	<br />
 	<p>
 	<strong>Don't use these services?</strong>
-	<%= link_to "Create an account", new_identity_path %> or login below.
+	<%= link_to "Create an account with your email", new_identity_path %> or Sign In below.
 	</p>
+	<br />
+	<br />
 
 	<%= form_tag "/auth/identity/callback" do %>
 		<div class="field">
@@ -23,7 +27,7 @@
 			<%= label_tag :password %><br>
 			<%= password_field_tag :password %>
 		</div>
-		<div class="actions"><%= submit_tag "Login" %></div>
+		<div class="actions"><%= submit_tag "Sign In" %></div>
 	<% end %>
 
 <% end %>
