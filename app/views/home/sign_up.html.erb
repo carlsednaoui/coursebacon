@@ -3,10 +3,10 @@
 <% if current_user %>
 	<%= link_to "Sign Out", signout_path %>
 <% else %>
-	<%= link_to "Sign In with Twitter", "/auth/twitter" %>
+	<%= link_to image_tag("sign-in-with-twitter.png", :class => "span-5"), "/auth/twitter" %>
 	<br />
-	<%= link_to "Sign In with Facebook", "/auth/facebook" %>
-
+	<br />
+	<%= link_to image_tag("sign-in-with-facebook.png", :class => "span-5"), "/auth/facebook" %>
 	<br />
 	<br />
 	<br />
@@ -25,7 +25,7 @@
 			<%= label_tag :password %>
 			<%= password_field_tag :password %>
 		</div>
-		<div class="actions"><%= submit_tag "Sign In" %></div>
+		<div class="actions"><%= submit_tag "Sign In", :class => "btn btn-primary" %></div>
 	<% end %>
 
 <% end %>

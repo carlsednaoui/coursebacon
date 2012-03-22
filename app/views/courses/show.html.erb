@@ -9,7 +9,7 @@
 </p>
 
 <p>
-  <b>Main topic:</b>
+  <b>Course topic:</b>
     <%= @course.main_topic %>
 </p>
 
@@ -47,7 +47,7 @@
 <% if current_user %>
 	<%= link_to 'Submit a Course Review', new_review_path(:course_id => @course.id, :user_id => current_user.id), :class => "btn btn-primary" %>
 <% elsif %>
-	<%= link_to 'Sign In to Submit a Course Review', '/sign-up', :class => 'btn btn-primary' %>
+	<%= link_to 'Submit a Course Review', '/sign-up', :class => 'btn btn-primary' %>
 <% end %>
 
 <div class="form-actions">
