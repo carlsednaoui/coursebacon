@@ -3,16 +3,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  before_filter :ensure_domain
-
-  APP_DOMAIN = 'www.roompatible.com'
-  def ensure_domain
-	  if request.env['HTTP_HOST'] == "roompatible.com"
-		  redirect_to "http://#{APP_DOMAIN}", :status => 301
-	  end
-  end
-
-
  private
 
   def current_user
