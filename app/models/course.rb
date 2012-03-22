@@ -10,6 +10,6 @@ class Course < ActiveRecord::Base
 
 
 	def to_param
-		  "#{id}-#{title.downcase.gsub(/[^a-zA-Z0-9]+/, '-').gsub(/-{2,}/, '-').gsub(/^-|-$/, '')}"
+		"#{id}-#{title.parameterize}"
 	end
 end
