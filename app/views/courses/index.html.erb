@@ -27,9 +27,9 @@
 </table>
 
 <% if current_user %>
-	<%= link_to 'New', new_course_path, :class => 'btn btn-primary' %>
+	<% link_to 'Submit a Course', new_course_path, :class => 'btn btn-primary' %>
 <% elsif %>
-	<%= link_to 'Sign Up to Submit a Course', '/sign-up', :class => 'btn btn-primary' %>
+	<% link_to 'Sign Up to Submit a Course', '/sign-up', :class => 'btn btn-primary' %>
 <% end %>
 <br />
 <br />

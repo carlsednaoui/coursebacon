@@ -28,14 +28,14 @@
 		<!--GA is above-->
 
 	 </head>
-	 <body>
-
-		 <div class="navbar">
+		 <div class="navbar navbar-fixed-top">
 			 <div class="navbar-inner">
 				 <div class="container">
-					 <ul class="nav">
+						 <div id="logo" class="nav-collapse">
+							 <%= link_to image_tag("coursebacon-logo.png"), "/" %>
+						 </div>
+					 <ul class="nav pull-right">
 						 <li><%= link_to "Home", :controller => "courses"%></li>
-						 <li><%= link_to "Be Awesome - Submit a Course", new_course_path %></li>
 						 <% if current_user %>
 							 <li><%= link_to "Dashboard", "/dashboard" %></li>
 							 <li><%= link_to "Sign Out", signout_path %></li>
@@ -46,6 +46,7 @@
 				 </div>
 			 </div>
 		 </div>
+	 <body>
 
 
 		 <!--Validation is below-->
@@ -73,8 +74,14 @@
 				 <div class="span2">
 					 <h2>About</h2>
 					 <p>
-						CourseBacon's aim is to help you find the best online courses. Please add, rate and comment on any course you have already completed.
+						CourseBacon's aim is to help you find the best online courses. Join the community and add, rate and comment on any course you have already completed.
 					 </p>
+					 <% if current_user %>
+						 <%= link_to 'Submit a Course', new_course_path, :class => 'btn btn-primary' %>
+					 <% elsif %>
+						 <%= link_to 'Sign Up to Submit a Course', '/sign-up', :class => 'btn btn-primary' %>
+					 <% end %>
+
 				 </div>
 			 </div>
 		 </div>
