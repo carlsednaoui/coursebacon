@@ -7,4 +7,9 @@ class Course < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :reviews
+
+
+	def to_param
+		  "#{id}-#{title.downcase.gsub(/[^a-zA-Z0-9]+/, '-').gsub(/-{2,}/, '-').gsub(/^-|-$/, '')}"
+	end
 end
