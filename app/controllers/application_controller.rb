@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   APP_DOMAIN = 'www.roompatible.com'
   def ensure_domain
-	  if request.env['HTTP_HOST'].eql? "http://roompatible.com"
+	  if request.env['HTTP_HOST'] == "roompatible.com"
 		  redirect_to "http://#{APP_DOMAIN}", :status => 301
 	  end
   end
