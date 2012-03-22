@@ -1,6 +1,6 @@
 Coursebacon::Application.routes.draw do
 	constraints(:host => /coursebacon.com/) do
-		#root :to => redirect("http://www.coursebacon.com")
+		root :to => redirect("http://www.coursebacon.com")
 		match '/*path', :to => redirect {|params| "http://www.coursebacon.com/#{params[:path]}"}
 	end
 
@@ -12,7 +12,7 @@ Coursebacon::Application.routes.draw do
   resources :identities
   resources :reviews
 
-  root :to => "courses#index"
+#  root :to => "courses#index"
   #match "/" => "courses#index"
   match "/dashboard" => "dashboard#index"
 
