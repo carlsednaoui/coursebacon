@@ -18,6 +18,14 @@
 	<% f.number_field :user_id, :class => 'text_area span8' %>
 	<% f.number_field :course_id, :class => 'text_area span8' %>
 
+	<div class="control-group">
+		<%= f.label :course_recommended, :class => 'control-label' %>
+		<div class="controls">
+			Yes <%= f.radio_button :course_recommended, "true", :checked => true %><br />
+			No <%= f.radio_button :course_recommended, "false" %>
+		</div>
+	</div>
+
     <div class="control-group">
       <%= f.label :course_review, :class => 'control-label' %>
       <div class="controls">

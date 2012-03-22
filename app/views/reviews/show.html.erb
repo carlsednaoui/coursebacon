@@ -6,6 +6,16 @@
 </p>
 
 <p>
+<b>Course Recommended</b><br>
+<% if @review.course_recommended.eql? true%>
+Yes
+<% else %>
+No
+<% end %>
+</p>
+
+
+<p>
   <b>Course review</b><br>
   <%= @review.course_review %>
 </p>

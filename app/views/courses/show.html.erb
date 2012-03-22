@@ -34,7 +34,11 @@
 <% else %>
 	<ul>
 	<% @reviews.each do |review| %>
-		<div class="alert alert-success"><%= review.course_review %></div>
+		<% if review.course_recommended.eql? true%>
+			<div class="alert alert-success"><%= review.course_review %></div>
+		<% else %>
+			<div class="alert alert-error"><%= review.course_review %></div>
+		<% end %>
 	<% end %>
 	</ul>
 <% end %>
