@@ -1,7 +1,7 @@
 Coursebacon::Application.routes.draw do
-	constraints(:host => /example.com/) do
-		root :to => redirect("http://www.example.com")
-		match '/*path', :to => redirect {|params| "http://www.example.com/#{params[:path]}"}
+	constraints(:host => /coursebacon.com/) do
+		root :to => redirect("http://www.coursebacon.com")
+		match '/*path', :to => redirect {|params| "http://www.coursebacon.com/#{params[:path]}"}
 	end
 
   get "dashboard/index"
