@@ -11,7 +11,7 @@
 	<tbody>
 		<% @courses.each do |course| %>
 			<tr>
-					<td><%= link_to truncate(course.title , :length => 40), course_path(course) %></td>
+					<td><%= link_to truncate(course.title , :length => 60), course_path(course) %></td>
 					<td><%= link_to truncate(course.offered_by , :length => 40), course_path(course) %></td>
 					<td><%= link_to truncate(course.main_topic , :length => 40), course_path(course) %></td>
 
