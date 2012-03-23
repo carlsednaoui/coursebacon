@@ -1,0 +1,37 @@
+<h1>/Tutorial</h1>
+
+<p>
+  <b>Title</b><br>
+  <%= @tutorial.title %>
+</p>
+
+<p>
+  <b>Url</b><br>
+  <%= @tutorial.url %>
+</p>
+
+<p>
+  <b>Main topic</b><br>
+  <%= @tutorial.main_topic %>
+</p>
+
+<p>
+  <b>Offered by</b><br>
+  <%= @tutorial.offered_by %>
+</p>
+
+<p>
+  <b>Description</b><br>
+  <%= @tutorial.description %>
+</p>
+
+<p>
+  <b>User</b><br>
+  <%= @tutorial.user_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', tutorials_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_tutorial_path(@tutorial), :class => 'btn' %>
+  <%= link_to 'Delete', tutorial_path(@tutorial), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

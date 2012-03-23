@@ -1,4 +1,6 @@
 Coursebacon::Application.routes.draw do
+#  resources :tutorials
+
   resources :courses
   resources :identities
   resources :reviews
