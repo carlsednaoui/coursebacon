@@ -40,7 +40,7 @@
 			 <div class="navbar-inner">
 				 <div class="container">
 						 <div id="logo" class="nav-collapse">
-							 <%= link_to image_tag("coursebacon-logo.png"), "/" %>
+							 <%= link_to image_tag("coursebacon-logo2.png"), "/" %>
 						 </div>
 					 <ul class="nav pull-right">
 						 <li><%= link_to "Home", :controller => "courses"%></li>
@@ -82,15 +82,15 @@
 				 <div class="span2">
 					 <h2>Pssst</h2>
 					 <p>
-					 CourseBacon's aim is to help you find the best online courses. 
-					 <br/>
-					 <br/>
-					 Join the community and add, rate and comment on our courses.
+					 Stop being a rebel. 
+					 <br />
+					 <br />
+					 Join our community and add, rate and comment on courses.
 					 </p>
 					 <% if current_user %>
 						 <%= link_to 'Submit a Course', new_course_path, :class => 'btn btn-success' %>
 					 <% elsif %>
-						 <%= link_to 'Oink Oink. Sign Up to Submit a Course', '/sign-up', :class => 'btn btn-success' %>
+						 <%= link_to 'Take 15 seconds to Sign Up', '/sign-up', :class => 'btn btn-success' %>
 					 <% end %>
 
 				 </div>

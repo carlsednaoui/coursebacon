@@ -28,9 +28,12 @@
 </p>
 
 <p>
-<b>Reviews</b><br>
+<b>Course reviews</b><br>
 <% if @reviews.eql? []%>
-	N/A
+	Sweet Guacamole Batman! No one has reviewed this course yet - why don't you take the leap?
+	<br />
+	<br/>
+	No seriously, why not?
 <% else %>
 	<ul>
 	<% @reviews.each do |review| %>
