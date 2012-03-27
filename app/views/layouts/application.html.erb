@@ -84,12 +84,12 @@
 					 <h2>Pssst</h2>
 					 <% if current_user %>
 						 <p>
-						 Hey <%= current_user.name.capitalize %>, we just wanted to tell you that you rock.
+						 Hey <%= current_user.name.titleize %>, we just wanted to tell you that you rock.
 						 <br />
 						 <br />
 						 Seriously, you do.
 						 </p>
-						 <%= link_to 'Gain some Karma and Submit a Course', new_course_path, :class => 'btn btn-success' %>
+						 <%= link_to "Have a minute... Why not Submit a Course?", new_course_path, :class => 'btn btn-success' %>
 					 <% elsif %>
 					 <p>
 					 Stop being a rebel. 
