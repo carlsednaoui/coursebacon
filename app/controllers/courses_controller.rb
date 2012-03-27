@@ -6,7 +6,8 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all.reverse
+    #@courses = Course.all.reverse
+    @courses = Course.order("created_at DESC").page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.erb

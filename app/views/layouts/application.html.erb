@@ -82,15 +82,21 @@
 
 				 <div class="span2">
 					 <h2>Pssst</h2>
+					 <% if current_user %>
+						 <p>
+						 Hey <%= current_user.name.capitalize %>, we just wanted to tell you that you rock.
+						 <br />
+						 <br />
+						 Seriously, you do.
+						 </p>
+						 <%= link_to 'Gain some Karma and Submit a Course', new_course_path, :class => 'btn btn-success' %>
+					 <% elsif %>
 					 <p>
 					 Stop being a rebel. 
 					 <br />
 					 <br />
 					 Join our community and add, rate and comment on courses.
 					 </p>
-					 <% if current_user %>
-						 <%= link_to 'Submit a Course', new_course_path, :class => 'btn btn-success' %>
-					 <% elsif %>
 						 <%= link_to 'Take 15 seconds and Sign Up', '/sign-up', :class => 'btn btn-success' %>
 					 <% end %>
 

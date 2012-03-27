@@ -1,4 +1,5 @@
 <h1>Awesome Courses</h1>
+<br />
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -32,4 +33,5 @@
 	<% link_to 'Sign Up to Submit a Course', '/sign-up', :class => 'btn btn-primary' %>
 <% end %>
 <br />
+<%= paginate @courses %>
 <br />
