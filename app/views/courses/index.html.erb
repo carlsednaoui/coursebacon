@@ -1,12 +1,12 @@
-<h1>Awesome Courses</h1>
-<br />
 <table class="table table-striped">
 	<thead>
-		<tr>
-			<th>Course Title</th>
-			<th>Offered by</th>
-			<th>Subject</th>
-			<th></th>
+		<tr class="big-table-header">
+			<th class="span5"><%= sortable "title", "Course Title" %></th>
+			<th class="span2"><%= sortable "offered_by", "Offered by" %></th>
+			<th class="span2"><%= sortable "main_topic", "Subject" %></th>
+			<% if current_user %>
+			<th class="span2"></th>
+			<% end %>
 		</tr>
 	</thead>
 	<tbody>

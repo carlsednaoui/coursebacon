@@ -3,11 +3,14 @@ class CoursesController < ApplicationController
     before_filter :require_current_user, :except => [:index, :show]
     before_filter :require_course_belongs_to_current_user, :only => [:edit, :update, :destroy]
 
+    helper_method :sort_column, :sort_direction
+
   # GET /courses
   # GET /courses.json
   def index
     #@courses = Course.all.reverse
-    @courses = Course.order("created_at DESC").page(params[:page]).per(10)
+    #@courses = Course.order("created_at DESC").page(params[:page]).per(10)
+    @courses = Course.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -91,5 +94,13 @@ class CoursesController < ApplicationController
 
  	def require_course_belongs_to_current_user
 		@course = current_user.courses.find(params[:id])
+	end
+
+	def sort_column
+		Course.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+	end
+
+	def sort_direction
+		%w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
 	end
 end
