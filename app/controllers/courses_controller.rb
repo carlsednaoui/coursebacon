@@ -9,8 +9,7 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     #@courses = Course.all.reverse
-    #@courses = Course.order("created_at DESC").page(params[:page]).per(10)
-    @courses = Course.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
+	@courses = Course.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -91,6 +90,8 @@ class CoursesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  private
 
  	def require_course_belongs_to_current_user
 		@course = current_user.courses.find(params[:id])
