@@ -23,6 +23,7 @@ end
 group :development, :test do
         gem 'sqlite3'
         gem 'sqlite3-ruby'
+ 	gem 'ruby-debug'
 end
 
 group :production do
@@ -35,6 +36,3 @@ end
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
- gem 'ruby-debug'
