@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = Review.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,7 +28,16 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @review.user_id = params["user_id"]
-    @review.course_id = params["course_id"]
+    #@review.course_id = params["course_id"]
+
+
+	@review_type = params[:review_type]
+	@id = params["#{@review_type}_id"]
+	@review_attribute = ":" + @review_type + "_review"
+	@review_type_label = @review_type + " Review"
+	@review_type_label = @review_type_label.titleize
+	@review_type_recommended = @review_type + "_recommended"
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +55,13 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(params[:review])
     @review.user_id = params["user_id"]
-    @review.course_id = params["course_id"]
+    #@review.course_id = params["course_id"]
+
+            @review_type = params[:review_type]
+	    @id = params["#{@review_type}_id"]
+	       @review_attribute = ":" + @review_type + "_review"
+	               @review_type_label = @review_type + " review"
+	@review_type_label = @review_type_label.titleize
 
     respond_to do |format|
       if @review.save

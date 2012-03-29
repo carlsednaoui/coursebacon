@@ -8,7 +8,7 @@ class Tutorial < ActiveRecord::Base
 	belongs_to :user
 	has_many :reviews
 
-
+#to_param puts SEO friendly URLs
 	def to_param
 		"#{id}-#{title.parameterize}"
 	end

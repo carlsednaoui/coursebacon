@@ -43,8 +43,10 @@
 							 <%= link_to image_tag("coursebacon-logo2.png"), "/" %>
 						 </div>
 					 <ul class="nav pull-right">
-						 <li><%= link_to "Home", :controller => "courses"%></li>
-						 <li><%= link_to "About", "/about"%></li>
+						 <li><%= link_to "Home", :controller => "courses" %></li>
+						 <li><%= link_to "Courses", :controller => "courses" %></li>
+						 <li><%= link_to "Books", :controller => "books" %></li>
+						 <li><%= link_to "Tutorials", :controller => "tutorials" %></li>
 						 <% if current_user %>
 							 <li><%= link_to "Dashboard", "/dashboard" %></li>
 							 <li><%= link_to "Sign Out", signout_path %></li>

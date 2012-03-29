@@ -10,54 +10,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323133801) do
-
-  create_table "courses", :force => true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.string   "main_topic"
-    t.string   "offered_by"
-    t.text     "description"
-    t.text     "syllabus"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  create_table "identities", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "reviews", :force => true do |t|
-    t.integer  "course_id"
-    t.integer  "user_id"
-    t.text     "course_review"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "course_recommended"
-  end
-
-  create_table "tutorials", :force => true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.string   "main_topic"
-    t.string   "offered_by"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end

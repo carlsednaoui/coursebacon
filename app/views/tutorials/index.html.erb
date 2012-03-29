@@ -1,26 +1,41 @@
-<h1>Tutorials</h1>
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Created at</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tutorials.each do |tutorial| %>
-      <tr>
-        <td><%= tutorial.id %></td>
-        <td><%= link_to tutorial.title, tutorial_path(tutorial) %></td>
-        <td><%= tutorial.created_at %></td>
-        <td>
-          <%= link_to 'Edit', edit_tutorial_path(tutorial), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', tutorial_path(tutorial), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+	<thead>
+		<tr class="big-table-header">
+			<th class="span5"><%= sortable "title", "Tutorial Title" %></th>
+			<th class="span2"><%= sortable "offered_by", "Offered by" %></th>
+			<th class="span2"><%= sortable "main_topic", "Subject" %></th>
+			<% if current_user %>
+				<th class="span2"></th>
+			<% end %>
 
-<%= link_to 'New', new_tutorial_path, :class => 'btn btn-primary' %>
+		</tr>
+	</thead>
+	<tbody>
+		<% @tutorials.each do |tutorial| %>
+			<tr>
+				<td><%= link_to truncate(tutorial.title , :length => 60), tutorial_path(tutorial) %></td>
+				<td><%= link_to truncate(tutorial.offered_by , :length => 20), tutorial_path(tutorial) %></td>
+				<td><%= link_to truncate(tutorial.main_topic , :length => 20), tutorial_path(tutorial) %></td>
+				<% if current_user %>
+					<% if tutorial.user == current_user %>
+						<td>
+							<%= link_to 'Edit', edit_tutorial_path(tutorial), :class => 'btn btn-mini' %>
+							<%= link_to 'Destroy', tutorial_path(tutorial), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+						</td>
+					<% else %>
+						<td><%= link_to truncate(tutorial.url, :length => 25), tutorial_path(tutorial) %></td>
+					<% end %>
+				<% end %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<% if current_user %>
+	<%= link_to 'Submit a Tutorial', new_tutorial_path, :class => 'btn btn-primary' %>
+<% elsif %>
+	<%= link_to 'Sign Up to Submit a Tutorial', '/sign-up', :class => 'btn btn-primary' %>
+<% end %>
+<br />
+<br />
+<%= paginate @tutorials %>
+<br />

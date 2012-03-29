@@ -1,37 +1,64 @@
-<h1>/Tutorial</h1>
+<br/>
+<h1><%= @tutorial.title %></h1>
+
+<br />
 
 <p>
-  <b>Title</b><br>
-  <%= @tutorial.title %>
+<b>Offered by:</b>
+<%= @tutorial.offered_by %>
 </p>
 
 <p>
-  <b>Url</b><br>
-  <%= @tutorial.url %>
+<b>Tutorial topic:</b>
+<%= @tutorial.main_topic %>
 </p>
 
 <p>
-  <b>Main topic</b><br>
-  <%= @tutorial.main_topic %>
+<b>URL:</b>
+<a href="<%= @tutorial.url %>" target="_blank"><%= @tutorial.url %></a>
 </p>
 
 <p>
-  <b>Offered by</b><br>
-  <%= @tutorial.offered_by %>
+<b>Description</b><br>
+<% if @tutorial.description.eql? ""%>
+	N/A
+<% else %>	
+	<%= @tutorial.description %>
+<% end %>
 </p>
 
-<p>
-  <b>Description</b><br>
-  <%= @tutorial.description %>
-</p>
+<br />
 
 <p>
-  <b>User</b><br>
-  <%= @tutorial.user_id %>
+<b>Tutorial reviews</b><br>
+<% if @reviews.eql? []%>
+	Sweet Guacamole Batman! No one has reviewed this tutorial yet - why don't you take the leap?
+	<br />
+	<br/>
+	No seriously, why not?
+<% else %>
+	<ul>
+		<% @reviews.each do |review| %>
+			<% if review.tutorial_recommended.eql? true%>
+				<div class="alert alert-success"><%= review.tutorial_review %></div>
+			<% else %>
+				<div class="alert alert-error"><%= review.tutorial_review %></div>
+			<% end %>
+		<% end %>
+	</ul>
+<% end %>
 </p>
+
+<% if current_user %>
+	<%= link_to 'Submit a Tutorial Review', new_review_path(:tutorial_id => @tutorial.id, :user_id => current_user.id, :review_type => "tutorial"), :class => "btn btn-primary" %>
+<% elsif %>
+	<%= link_to 'Submit a Tutorial Review', '/sign-up', :class => 'btn btn-primary' %>
+<% end %>
 
 <div class="form-actions">
-  <%= link_to 'Back', tutorials_path, :class => 'btn'  %>
-  <%= link_to 'Edit', edit_tutorial_path(@tutorial), :class => 'btn' %>
-  <%= link_to 'Delete', tutorial_path(@tutorial), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+	<%= link_to 'Back', tutorials_path, :class => 'btn'  %>
+	<% if @tutorial.user == current_user %>
+		<%= link_to 'Edit', edit_tutorial_path(@tutorial), :class => 'btn' %>
+		<%= link_to 'Delete', tutorial_path(@tutorial), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+	<% end %>
 </div>
