@@ -1,0 +1,57 @@
+<%= form_for @book, :html => { :class => 'form-inline' } do |f| %>
+
+	<% if @book.errors.any? %>
+		<div class="alert">
+			<h2><%= pluralize(@book.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+			<ul>
+				<% @book.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+
+	<fieldset>
+		<legend><%= controller.action_name.capitalize %> Book</legend>
+
+		<div class="control-group">
+			<%= f.label :title, "Book Title", :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_field :title, :class => 'text_field' %>
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<%= f.label :url, "Book URL", :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_field :url, :class => 'text_field' %>
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<%= f.label :main_topic, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_field :main_topic, :class => 'text_field', :placeholder => "The main topic of this book is..." %>
+			</div>
+		</div>
+
+
+
+		<div class="control-group">
+			<%= f.label :description, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_area :description, :class => 'text_area span8', :rows => 8 %>
+			</div>
+		</div>
+
+
+		<div class="form-actions">
+			<%= f.submit nil, :class => 'btn btn-primary' %>
+			<%= link_to 'Cancel', books_path, :class => 'btn' %>
+		</div>
+	</fieldset>
+<% end %>

@@ -1,0 +1,59 @@
+<br/>
+<h1><%= @book.title %></h1>
+
+<br />
+
+<p>
+  <b>Book topic:</b>
+    <%= @book.main_topic %>
+</p>
+
+<p>
+  <b>URL:</b>
+  <a href="<%= @book.url %>" target="_blank"><%= @book.url %></a>
+</p>
+
+<p>
+  <b>Description</b><br>
+<% if @book.description.eql? ""%>
+	N/A
+	<% else %>	
+  <%= @book.description %>
+  <% end %>
+</p>
+
+<br />
+
+<p>
+<b>Book reviews</b><br>
+<% if @reviews.eql? []%>
+	Sweet Guacamole Batman! No one has reviewed this book yet - why don't you take the leap?
+	<br />
+	<br/>
+	No seriously, why not?
+<% else %>
+	<ul>
+	<% @reviews.each do |review| %>
+		<% if review.book_recommended.eql? true%>
+			<div class="alert alert-success"><%= review.book_review %></div>
+		<% else %>
+			<div class="alert alert-error"><%= review.book_review %></div>
+		<% end %>
+	<% end %>
+	</ul>
+<% end %>
+</p>
+
+<% if current_user %>
+	<%= link_to 'Submit a Book Review', new_review_path(:book_id => @book.id, :user_id => current_user.id, :review_type => "book"), :class => "btn btn-primary" %>
+<% elsif %>
+	<%= link_to 'Submit a Book Review', '/sign-up', :class => 'btn btn-primary' %>
+<% end %>
+
+<div class="form-actions">
+  <%= link_to 'Back', books_path, :class => 'btn'  %>
+	<% if @book.user == current_user %>
+  <%= link_to 'Edit', edit_book_path(@book), :class => 'btn' %>
+  <%= link_to 'Delete', book_path(@book), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+	<% end %>
+</div>
