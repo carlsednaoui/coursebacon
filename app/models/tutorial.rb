@@ -6,7 +6,7 @@ class Tutorial < ActiveRecord::Base
 	validates_uniqueness_of :url
 
 	belongs_to :user
-	has_many :reviews
+#	has_many :reviews
 
 #to_param puts SEO friendly URLs
 	def to_param

@@ -31,18 +31,18 @@
 
 <p>
 <b>Course reviews</b><br>
-<% if @reviews.eql? []%>
+<% if @course_reviews.eql? []%>
 	Sweet Guacamole Batman! No one has reviewed this course yet - why don't you take the leap?
 	<br />
 	<br/>
 	No seriously, why not?
 <% else %>
 	<ul>
-	<% @reviews.each do |review| %>
-		<% if review.course_recommended.eql? true%>
-			<div class="alert alert-success"><%= review.course_review %></div>
+	<% @course_reviews.each do |course_review| %>
+		<% if course_review.recommended.eql? true%>
+			<div class="alert alert-success"><%= course_review.review %></div>
 		<% else %>
-			<div class="alert alert-error"><%= review.course_review %></div>
+			<div class="alert alert-error"><%= course_review.review %></div>
 		<% end %>
 	<% end %>
 	</ul>
@@ -50,10 +50,11 @@
 </p>
 
 <% if current_user %>
-	<%= link_to 'Submit a Course Review', new_review_path(:course_id => @course.id, :user_id => current_user.id, :review_type => "course"), :class => "btn btn-primary" %>
+	<%= link_to 'Submit a Course Review', new_course_review_path(:course_id => @course.id, :user_id => current_user.id), :class => "btn btn-primary" %>
 <% elsif %>
 	<%= link_to 'Submit a Course Review', '/sign-up', :class => 'btn btn-primary' %>
 <% end %>
+
 
 <div class="form-actions">
   <%= link_to 'Back', courses_path, :class => 'btn'  %>

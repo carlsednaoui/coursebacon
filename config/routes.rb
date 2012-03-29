@@ -1,11 +1,12 @@
 Coursebacon::Application.routes.draw do
+  resources :course_reviews
+
   resources :books
 
   resources :tutorials
 
   resources :courses
   resources :identities
-  resources :reviews
 
   root :to => "courses#index"
   #match "/" => "courses#index"

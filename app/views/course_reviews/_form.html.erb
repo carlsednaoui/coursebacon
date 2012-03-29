@@ -1,0 +1,45 @@
+<br />
+<%= form_for @course_review, :html => { :class => 'form-vertical' } do |f| %>
+	<% if @course_review.errors.any? %>
+		<div class="alert">
+			<h2><%= pluralize(@course_review.errors.count, "error") %> prohibited this course review from being saved:</h2>
+
+			<ul>
+				<% @course_review.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Review</legend>
+
+	<% f.number_field :user_id, :class => 'text_area span8' %>
+	<% f.number_field :course_id, :class => 'text_area span8' %>
+
+	<div class="control-group">
+		<%= f.label :recommended, "Would you recommend this course?", :class => 'control-label' %>
+		<div class="controls">
+			Yes <%= f.radio_button :recommended, "true", :checked => true %><br />
+			No <%= f.radio_button :recommended, "false" %>
+		</div>
+	</div>
+	<br />
+
+    <div class="control-group">
+      <%= f.label :review, :class => 'control-label' %>
+      <div class="controls">
+	      <%= f.text_area :review, :class => 'text_area span7', :placeholder => "Feel free to include WHY you liked or disliked this course and WHAT you've learned. Also, feel free to link to any course project you created.", :rows => 12 %>
+      </div>
+    </div>
+
+	<input type="hidden" name="user_id" value="<%= current_user.id %>" />
+	<input type="hidden" name="course_id" value="<%= @course_review.course_id %>" /><br />
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', course_reviews_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

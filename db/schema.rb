@@ -10,6 +10,64 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120329030600) do
+
+  create_table "books", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "main_topic"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "course_reviews", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.text     "review"
+    t.boolean  "recommended"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "main_topic"
+    t.string   "offered_by"
+    t.text     "description"
+    t.text     "syllabus"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "identities", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tutorials", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "main_topic"
+    t.string   "offered_by"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
