@@ -35,13 +35,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @current_user_reviews.each do |review| %>
+		<% @current_user_course_reviews.each do |course_review| %>
 			<tr>
-				<td><%= link_to truncate(review.course_review, :length => 65), review_path(review) %></td>
+				<td><%= link_to truncate(course_review.review, :length => 65), course_review_path(course_review) %></td>
 
 				<td>
-					<%= link_to 'Edit', edit_review_path(review), :class => 'btn btn-mini' %>
-					<%= link_to 'Destroy', review_path(review), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+					<%= link_to 'Edit', edit_course_review_path(course_review), :class => 'btn btn-mini' %>
+					<%= link_to 'Destroy', course_review_path(course_review), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
 				</td>
 			</tr>
 		<% end %>
