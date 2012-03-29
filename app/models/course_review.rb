@@ -5,5 +5,4 @@ class CourseReview < ActiveRecord::Base
 	validates_presence_of :course_id
 	validates_presence_of :user_id
 	validates_presence_of :review
-	validates_presence_of :recommended
 end

@@ -21,8 +21,7 @@
 	<div class="control-group">
 		<%= f.label :recommended, "Would you recommend this course?", :class => 'control-label' %>
 		<div class="controls">
-			Yes <%= f.radio_button :recommended, "true", :checked => true %><br />
-			No <%= f.radio_button :recommended, "false" %>
+			<%= f.select :recommended, {"Yes" => true, "No" => false}, :selected => true %>
 		</div>
 	</div>
 	<br />
