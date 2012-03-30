@@ -1,0 +1,21 @@
+<h1>Reviews You've Added to CourseBacon</h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Review</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @tutorial_reviews.each do |tutorial_review| %>
+			<tr>
+				<td><%= link_to truncate(tutorial_review.review, :length => 65), tutorial_review_path(tutorial_review) %></td>
+
+				<td>
+					<%= link_to 'Edit', edit_tutorial_review_path(tutorial_review), :class => 'btn btn-mini' %>
+					<%= link_to 'Destroy', tutorial_review_path(tutorial_review), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

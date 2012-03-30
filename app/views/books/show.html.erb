@@ -4,51 +4,54 @@
 <br />
 
 <p>
-  <b>Book topic:</b>
-    <%= @book.main_topic %>
+<b>Book topic:</b>
+<%= @book.main_topic %>
 </p>
 
 <p>
-  <b>URL:</b>
-  <a href="<%= @book.url %>" target="_blank"><%= @book.url %></a>
+<b>URL:</b>
+<a href="<%= @book.url %>" target="_blank"><%= @book.url %></a>
 </p>
 
 <p>
-  <b>Description</b><br>
+<b>Description</b><br>
 <% if @book.description.eql? ""%>
 	N/A
-	<% else %>	
-  <%= @book.description %>
-  <% end %>
+<% else %>	
+	<%= @book.description %>
+<% end %>
 </p>
 
 <br />
 
 <p>
+
+<p>
 <b>Book reviews</b><br>
-<% if @reviews.eql? []%>
+<% if @book_reviews.eql? []%>
 	Sweet Guacamole Batman! No one has reviewed this book yet - why don't you take the leap?
 	<br />
 	<br/>
 	No seriously, why not?
 <% else %>
 	<ul>
-	<% @reviews.each do |review| %>
-		<% if review.book_recommended.eql? true%>
-			<div class="alert alert-success"><%= review.book_review %></div>
-		<% else %>
-			<div class="alert alert-error"><%= review.book_review %></div>
+		<% @book_reviews.each do |book_review| %>
+			<% if book_review.recommended.eql? true%>
+				<div class="alert alert-success"><%= book_review.review %></div>
+			<% else %>
+				<div class="alert alert-error"><%= book_review.review %></div>
+			<% end %>
 		<% end %>
-	<% end %>
 	</ul>
 <% end %>
 </p>
 
 <% if current_user %>
-	<%= link_to 'Submit a Book Review', new_review_path(:book_id => @book.id, :user_id => current_user.id, :review_type => "book"), :class => "btn btn-primary" %>
+	<%= link_to 'Submit a Book Review', new_book_review_path(:book_id => @book.id, :user_id => current_user.id), :class => "btn btn-primary" %>
 <% elsif %>
 	<%= link_to 'Submit a Book Review', '/sign-up', :class => 'btn btn-primary' %>
 <% end %>
+
 
 <div class="form-actions">
   <%= link_to 'Back', books_path, :class => 'btn'  %>

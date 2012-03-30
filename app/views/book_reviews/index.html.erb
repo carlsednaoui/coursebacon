@@ -1,0 +1,21 @@
+<h1>Reviews You've Added to BookBacon</h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Review</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @book_reviews.each do |book_review| %>
+			<tr>
+				<td><%= link_to truncate(book_review.review, :length => 65), book_review_path(book_review) %></td>
+
+				<td>
+					<%= link_to 'Edit', edit_book_review_path(book_review), :class => 'btn btn-mini' %>
+					<%= link_to 'Destroy', book_review_path(book_review), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

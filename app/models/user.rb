@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	has_many :courses
 	has_many :reviews
 	has_many :tutorials
+	has_many :books
 
 	def self.from_omniauth(auth)
 		find_by_provider_and_uid(auth["provider"], auth["uid"]) || create_with_omniauth(auth)

@@ -1,0 +1,44 @@
+<br />
+<%= form_for @tutorial_review, :html => { :class => 'form-vertical' } do |f| %>
+	<% if @tutorial_review.errors.any? %>
+		<div class="alert">
+			<h2><%= pluralize(@tutorial_review.errors.count, "error") %> prohibited this tutorial review from being saved:</h2>
+
+			<ul>
+				<% @tutorial_review.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Review</legend>
+
+	<% f.number_field :user_id, :class => 'text_area span8' %>
+	<% f.number_field :tutorial_id, :class => 'text_area span8' %>
+
+	<div class="control-group">
+		<%= f.label :recommended, "Would you recommend this tutorial?", :class => 'control-label' %>
+		<div class="controls">
+			<%= f.select :recommended, {"Yes" => true, "No" => false}, :selected => true %>
+		</div>
+	</div>
+	<br />
+
+    <div class="control-group">
+      <%= f.label :review, :class => 'control-label' %>
+      <div class="controls">
+	      <%= f.text_area :review, :class => 'text_area span7', :placeholder => "Feel free to include WHY you liked or disliked this tutorial and WHAT you've learned. Also, feel free to link to any project this tutorial helped you create.", :rows => 12 %>
+      </div>
+    </div>
+
+	<input type="hidden" name="user_id" value="<%= current_user.id %>" />
+	<input type="hidden" name="tutorial_id" value="<%= @tutorial_review.tutorial_id %>" /><br />
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', tutorial_reviews_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

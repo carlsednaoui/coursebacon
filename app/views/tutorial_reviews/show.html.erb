@@ -1,0 +1,27 @@
+<h1>Review</h1>
+
+<p>
+  <b>Tutorial:</b>
+  <%= link_to Tutorial.find_by_id(@tutorial_review.tutorial_id).title, Tutorial.find_by_id(@tutorial_review.tutorial_id) %>
+</p>
+
+<p>
+<b>Tutorial Recommended</b><br>
+<% if @tutorial_review.recommended.eql? true%>
+Yes
+<% else %>
+No
+<% end %>
+</p>
+
+
+<p>
+  <b>Tutorial review</b><br>
+  <%= @tutorial_review.review %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', tutorial_reviews_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_tutorial_review_path(@tutorial_review), :class => 'btn' %>
+  <%= link_to 'Delete', tutorial_review_path(@tutorial_review), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

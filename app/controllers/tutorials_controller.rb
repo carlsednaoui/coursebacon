@@ -22,7 +22,7 @@ class TutorialsController < ApplicationController
 	# GET /tutorials/1.json
 	def show
 		@tutorial = Tutorial.find(params[:id])
-		@reviews = Review.find_all_by_tutorial_id(@tutorial.id).reverse
+		@tutorial_reviews = TutorialReview.find_all_by_tutorial_id(@tutorial.id).reverse
 
 		respond_to do |format|
 			format.html # show.html.erb

@@ -1,0 +1,27 @@
+<h1>Review</h1>
+
+<p>
+  <b>Book:</b>
+  <%= link_to Book.find_by_id(@book_review.book_id).title, Book.find_by_id(@book_review.book_id) %>
+</p>
+
+<p>
+<b>Book Recommended</b><br>
+<% if @book_review.recommended.eql? true%>
+Yes
+<% else %>
+No
+<% end %>
+</p>
+
+
+<p>
+  <b>Book review</b><br>
+  <%= @book_review.review %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', book_reviews_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_book_review_path(@book_review), :class => 'btn' %>
+  <%= link_to 'Delete', book_review_path(@book_review), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
