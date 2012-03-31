@@ -1,5 +1,5 @@
 Coursebacon::Application.routes.draw do
-  root :to => "courses#index"
+  root :to => "home#index"
 
   resources :books
   resources :book_reviews
@@ -9,7 +9,6 @@ Coursebacon::Application.routes.draw do
   resources :course_reviews
   resources :identities
 
-  match "/home" => "home#index"
   match "/dashboard" => "dashboard#index"
   match "/about" => "home#about"
   match "/team" => "home#about"

@@ -3,107 +3,107 @@
 	<head>
 		<title>Coursebacon</title>
 		<!--[if lt IE 9]>
-		    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-		      <![endif]-->
-		<%= stylesheet_link_tag    "application" %>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+		<![endif]-->
+		<%= stylesheet_link_tag "application" %>
+		<link href='http://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
-		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-		 <!--GA is below-->
-		 <script type="text/javascript">
+		<!--GA is below-->
+		<script type="text/javascript">
 
-			 var _gaq = _gaq || [];
-			 _gaq.push(['_setAccount', 'UA-30186093-1']);
-			 _gaq.push(['_trackPageview']);
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-30186093-1']);
+			_gaq.push(['_trackPageview']);
 
-			 (function() {
-			  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			  })();
+			(function() {
+			 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			 })();
 
-		</script>
-		<!--GA is above-->
+</script>
+<!--GA is above-->
 
 
 
-		<!-- start Mixpanel -->
-		<script type="text/javascript">(function(d,c){var a,b,g,e;a=d.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===d.location.protocol?"https:":"http:")+'//api.mixpanel.com/site_media/js/api/mixpanel.2.js';b=d.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);c._i=[];c.init=function(a,d,f){var b=c;"undefined"!==typeof f?b=c[f]=[]:f="mixpanel";g="disable track track_links track_forms register register_once unregister identify name_tag set_config".split(" ");for(e=0;e<
-			g.length;e++)(function(a){b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}})(g[e]);c._i.push([a,d,f])};window.mixpanel=c})(document,[]);
-	mixpanel.init("0bcb88433b14ef6b75051931803e10e3");</script>
+<!-- start Mixpanel -->
+<script type="text/javascript">(function(d,c){var a,b,g,e;a=d.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===d.location.protocol?"https:":"http:")+'//api.mixpanel.com/site_media/js/api/mixpanel.2.js';b=d.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);c._i=[];c.init=function(a,d,f){var b=c;"undefined"!==typeof f?b=c[f]=[]:f="mixpanel";g="disable track track_links track_forms register register_once unregister identify name_tag set_config".split(" ");for(e=0;e<
+	g.length;e++)(function(a){b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}})(g[e]);c._i.push([a,d,f])};window.mixpanel=c})(document,[]);
+mixpanel.init("0bcb88433b14ef6b75051931803e10e3");</script>
 		<!-- end Mixpanel -->
 
-	 </head>
-		 <div class="navbar navbar-fixed-top">
-			 <div class="navbar-inner">
-				 <div class="container">
-						 <div id="logo" class="nav-collapse">
-							 <%= link_to image_tag("coursebacon-logo2.png"), "/" %>
-						 </div>
-					 <ul class="nav pull-right">
-						 <li><%= link_to "Home", :controller => "courses" %></li>
-						 <li><%= link_to "Courses", :controller => "courses" %></li>
-						 <li><%= link_to "Books", :controller => "books" %></li>
-						 <li><%= link_to "Tutorials", :controller => "tutorials" %></li>
-						 <% if current_user %>
-							 <li><%= link_to "Dashboard", "/dashboard" %></li>
-							 <li><%= link_to "Sign Out", signout_path %></li>
-						 <% else %>
-							 <li><%= link_to "Sign In", "/sign-up" %></li>
-						 <% end %>
-					 </ul>
-				 </div>
-			 </div>
-		 </div>
-	 <body>
+	</head>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<div id="logo" class="nav-collapse">
+					<%= link_to image_tag("coursebacon-logo2.png"), "/" %>
+				</div>
+				<ul class="nav pull-right">
+					<li><%= link_to "Home", "/" %></li>
+					<li><%= link_to "Courses", :controller => "courses" %></li>
+					<li><%= link_to "Books", :controller => "books" %></li>
+					<li><%= link_to "Tutorials", :controller => "tutorials" %></li>
+					<% if current_user %>
+						<li><%= link_to "Dashboard", "/dashboard" %></li>
+						<li><%= link_to "Sign Out", signout_path %></li>
+					<% else %>
+						<li><%= link_to "Sign In", "/sign-up" %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<body>
 
 
-		 <!--Validation is below-->
-		 <div class="validation span12">
-			 <div class"row-fluid">
-					 <% flash.each do |key, value|%>
-				 <div class="alert">
-						 <div id="flash_<%= key %>">
-							 <%= value %>
-						 </div>
-				 </div>
-					 <% end %>
-			 </div>
-		 </div>
-		 <!--Validation is above-->
+		<!--Validation is below-->
+		<div class="validation span12">
+			<div class"row-fluid">
+				<% flash.each do |key, value|%>
+					<div class="alert">
+						<div id="flash_<%= key %>">
+							<%= value %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<!--Validation is above-->
 
-		 <div class="container-fluid">
-			 <div class"row-fluid">
-				 <div class="span10">
+		<div class="container-fluid">
+			<div class"row-fluid">
+				<div class="span10">
 
-					 <%= yield %>
+					<%= yield %>
 
-				 </div>
+				</div>
 
-				 <div class="span2">
-					 <h2>Pssst</h2>
-					 <% if current_user %>
-						 <p>
-						 Hey <%= current_user.name.titleize %>, we just wanted to tell you that you rock.
-						 <br />
-						 <br />
-						 Seriously, you do.
-						 </p>
-						 <%= link_to "Have a minute... Why not Submit a Course?", new_course_path, :class => 'btn btn-success' %>
-					 <% elsif %>
-					 <p>
-					 Stop being a rebel. 
-					 <br />
-					 <br />
-					 Join our community and add, rate and comment on courses.
-					 </p>
-						 <%= link_to 'Take 15 seconds and Sign Up', '/sign-up', :class => 'btn btn-success' %>
-					 <% end %>
+				<div class="span2">
+					<h2>Pssst</h2>
+					<% if current_user %>
+						<p>
+						Hey <%= current_user.name.titleize %>, we just wanted to tell you that you rock.
+						<br />
+						<br />
+						Seriously, you do.
+						</p>
+					<% elsif %>
+						<p>
+						Stop being a rebel. 
+						<br />
+						<br />
+						Join our community and help others discover the best learning resources.
+						</p>
+						<%= link_to 'Take 15 seconds and Sign Up', '/sign-up', :class => 'btn btn-danger' %>
+					<% end %>
 
-				 </div>
-			 </div>
-		 </div>
-	 </body>
- </html>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
