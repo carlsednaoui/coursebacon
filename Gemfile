@@ -23,7 +23,8 @@ end
 group :development, :test do
         gem 'sqlite3'
         gem 'sqlite3-ruby'
- 	gem 'ruby-debug'
+# Removed debugger to be able to use ruby 1.9.2 because debugger requires linecache which was not working
+# 	gem 'ruby-debug'
 end
 
 group :production do
