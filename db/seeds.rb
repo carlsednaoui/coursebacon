@@ -46,6 +46,8 @@ Course.create(:title => 'Google Python Class', :url => 'http://code.google.com/e
 
 Course.create(:title => 'Learning from data', :url => 'http://work.caltech.edu/telecourse.html', :offered_by => 'Caltech', :main_topic => 'Machine Learning', :description => "This is an introductory course on machine learning that covers the basic theory, algorithms, and applications. Machine learning (ML) enables computational systems to adaptively improve their performance with experience accumulated from the observed data. ML techniques are widely applied in engineering, science, finance, and commerce to build systems for which we do not have full mathematical specification (and that covers a lot of systems). The course balances theory and practice, and covers the mathematical as well as the heuristic aspects. ", :user_id => 1)
 
+Course.create(:title => 'Getting Traction', :url => 'http://tractionbook.com/', :offered_by => 'Yegg', :main_topic => 'Startup', :description => "View videos of successful entrepreneurs and learn the techniques they used to gain serious market traction.", :user_id => 1)
+
 #Course.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Tutorial.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Book.create(:title => '', :url => '', :main_topic => '', :description => "", :user_id => 1)
