@@ -1,4 +1,5 @@
 <% content_for :title, "#{@course.title} - CourseBacon" %>
+<% content_for :description, truncate("#{@course.description}", :length => 150) %>
 <br/>
 <h1><%= @course.title %></h1>
 

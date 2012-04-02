@@ -5,4 +5,10 @@ class HomeController < ApplicationController
   def index
   end
 
+  def sitemap
+	  @courses = Course.all
+	  @tutorials = Tutorial.all
+	  @books = Book.all
+  end
+
 end
