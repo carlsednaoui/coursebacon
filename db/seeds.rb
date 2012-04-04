@@ -48,6 +48,18 @@ Course.create(:title => 'Learning from data', :url => 'http://work.caltech.edu/t
 
 Course.create(:title => 'Getting Traction', :url => 'http://tractionbook.com/', :offered_by => 'Yegg', :main_topic => 'Startup', :description => "View videos of successful entrepreneurs and learn the techniques they used to gain serious market traction.", :user_id => 1)
 
+Tutorial.create(:title => 'Twitter Sentiment Analysis Using Python', :url => 'http://www.laurentluce.com/posts/twitter-sentiment-analysis-using-python-and-nltk/', :offered_by => 'Laurent Luce', :main_topic => 'Sentiment Analysis', :description => "This post describes the implementation of sentiment analysis of tweets using Python and the natural language toolkit NLTK. The post also describes the internals of NLTK related to this implementation.", :user_id => 1)
+
+Tutorial.create(:title => 'Email Infrastucture Setup Guide', :url => 'http://iafonov.github.com/blog/hardcore-email-infrastructure-setup.html', :offered_by => 'Igor Afonov', :main_topic => 'Email', :description => "This article will help you ensure that your ‘good’ emails will not get into spam folder. If you are sending junk emails with viagra advertisement sooner or later you’ll get in trouble anyway. In this article you will get a brief overview of things you can do to increase the quality of email subsystem of your application.", :user_id => 1)
+
+Tutorial.create(:title => 'RailsCasts', :url => 'http://railscasts.com/', :offered_by => 'Ryan Bates', :main_topic => 'Ruby on Rails', :description => "The authority when it comes to Rails tutorials. Make sure to check out all of his great videos!", :user_id => 1)
+
+Tutorial.create(:title => 'Ruby Tutorials', :url => 'http://rubysource.com/category/ruby-tutorials/', :offered_by => 'Ruby Source', :main_topic => 'Ruby', :description => "A wide variety of useful Ruby tutorials.", :user_id => 1)
+
+Tutorial.create(:title => 'Rails Tutorials', :url => 'http://rubysource.com/category/rails-tutorials/', :offered_by => 'Ruby Source', :main_topic => 'Rails', :description => "A wide variety of useful Ruby on Rails tutorials.", :user_id => 1)
+
+Tutorial.create(:title => 'Nginx Tutorials', :url => 'http://agentzh.org/misc/nginx/agentzh-nginx-tutorials-enuk.html', :offered_by => 'agentzh', :main_topic => 'Nginx', :description => "One principle that I've been trying to follow in these tutorials is to use small and concise configure examples to validate the concepts and principles that are being explained. I hope this can help the reader to build the good habit of not accepting others' viewpoints or statements without testing them. This style may have something to do with my QA background.", :user_id => 1)
+
 #Course.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Tutorial.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Book.create(:title => '', :url => '', :main_topic => '', :description => "", :user_id => 1)
