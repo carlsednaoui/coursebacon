@@ -56,7 +56,7 @@ Tutorial.create(:title => 'RailsCasts', :url => 'http://railscasts.com/', :offer
 
 Tutorial.create(:title => 'Ruby Tutorials', :url => 'http://rubysource.com/category/ruby-tutorials/', :offered_by => 'Ruby Source', :main_topic => 'Ruby', :description => "A wide variety of useful Ruby tutorials.", :user_id => 1)
 
-Tutorial.create(:title => 'Rails Tutorials', :url => 'http://rubysource.com/category/rails-tutorials/', :offered_by => 'Ruby Source', :main_topic => 'Rails', :description => "A wide variety of useful Ruby on Rails tutorials.", :user_id => 1)
+Tutorial.create(:title => 'Rails Tutorials', :url => 'http://rubysource.com/category/rails-tutorials/', :offered_by => 'Ruby Source', :main_topic => 'Ruby on Rails', :description => "A wide variety of useful Ruby on Rails tutorials.", :user_id => 1)
 
 Tutorial.create(:title => 'Nginx Tutorials', :url => 'http://agentzh.org/misc/nginx/agentzh-nginx-tutorials-enuk.html', :offered_by => 'agentzh', :main_topic => 'Nginx', :description => "One principle that I've been trying to follow in these tutorials is to use small and concise configure examples to validate the concepts and principles that are being explained. I hope this can help the reader to build the good habit of not accepting others' viewpoints or statements without testing them. This style may have something to do with my QA background.", :user_id => 1)
 
