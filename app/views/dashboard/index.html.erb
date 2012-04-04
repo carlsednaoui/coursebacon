@@ -1,51 +1,162 @@
 <% content_for :title, "CouseBacon Dashboard" %>
-<h1>Courses You've Added to CourseBacon</h1>
-<br/>
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Course Title</th>
-			<th>Offered by</th>
-			<th>Subject</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @current_user_courses.each do |course| %>
-			<tr>
-					<td><%= link_to truncate(course.title , :length => 40), course_path(course) %></td>
-					<td><%= link_to truncate(course.offered_by , :length => 40), course_path(course) %></td>
-					<td><%= link_to truncate(course.main_topic , :length => 40), course_path(course) %></td>
-				<td>
-					<%= link_to 'Edit', edit_course_path(course), :class => 'btn btn-mini' %>
-					<%= link_to 'Destroy', course_path(course), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-				</td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-<br />
-<br />
-<h1>Reviews You've Added to CourseBacon</h1>
-<br />
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Review</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @current_user_course_reviews.each do |course_review| %>
-			<tr>
-				<td><%= link_to truncate(course_review.review, :length => 65), course_review_path(course_review) %></td>
 
-				<td>
-					<%= link_to 'Edit', edit_course_review_path(course_review), :class => 'btn btn-mini' %>
-					<%= link_to 'Destroy', course_review_path(course_review), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-				</td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+<h2>
+Find all of the content you've added to CourseBacon below.
+</h2>
+<p>
+	(thank you for being awesome, btw)
+</p>
 
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#1" data-toggle="tab">Courses</a></li>
+    <li><a href="#2" data-toggle="tab">Course Reviews</a></li>
+	<li><a href="#3" data-toggle="tab">Books</a></li>
+	<li><a href="#4" data-toggle="tab">Book Reviews</a></li>
+	<li><a href="#5" data-toggle="tab">Tutorials</a></li>
+	<li><a href="#6" data-toggle="tab">Tutorial Reviews</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="1">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Course Title</th>
+					<th>Offered by</th>
+					<th>Subject</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @current_user_courses.each do |course| %>
+					<tr>
+							<td><%= link_to truncate(course.title , :length => 40), course_path(course) %></td>
+							<td><%= link_to truncate(course.offered_by , :length => 40), course_path(course) %></td>
+							<td><%= link_to truncate(course.main_topic , :length => 40), course_path(course) %></td>
+						<td>
+							<%= link_to 'Edit', edit_course_path(course), :class => 'btn btn-mini' %>
+							<%= link_to 'Destroy', course_path(course), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+    </div>
+    <div class="tab-pane" id="2">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Review</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @current_user_course_reviews.each do |course_review| %>
+					<tr>
+						<td><%= link_to truncate(course_review.review, :length => 65), course_review_path(course_review) %></td>
+
+						<td>
+							<%= link_to 'Edit', edit_course_review_path(course_review), :class => 'btn btn-mini' %>
+							<%= link_to 'Destroy', course_review_path(course_review), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+    </div>
+    <div class="tab-pane" id="3">
+      	<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Book Title</th>
+					<th>URL</th>
+					<th>Subject</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @current_user_books.each do |book| %>
+					<tr>
+							<td><%= link_to truncate(book.title , :length => 40), book_path(book) %></td>
+							<td><%= link_to truncate(book.url , :length => 40), book_path(book) %></td>
+							<td><%= link_to truncate(book.main_topic , :length => 40), book_path(book) %></td>
+						<td>
+							<%= link_to 'Edit', edit_book_path(book), :class => 'btn btn-mini' %>
+							<%= link_to 'Destroy', book_path(book), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+    </div>
+    <div class="tab-pane" id="4">
+      	<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Review</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @current_user_book_reviews.each do |book_review| %>
+					<tr>
+						<td><%= link_to truncate(book_review.review, :length => 65), book_review_path(book_review) %></td>
+
+						<td>
+							<%= link_to 'Edit', edit_book_review_path(book_review), :class => 'btn btn-mini' %>
+							<%= link_to 'Destroy', book_review_path(book_review), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+    </div>
+    <div class="tab-pane" id="5">
+      	<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Tutorial Title</th>
+					<th>Offered by</th>
+					<th>Subject</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @current_user_tutorials.each do |tutorial| %>
+					<tr>
+							<td><%= link_to truncate(tutorial.title , :length => 40), tutorial_path(tutorial) %></td>
+							<td><%= link_to truncate(tutorial.offered_by , :length => 40), tutorial_path(tutorial) %></td>
+							<td><%= link_to truncate(tutorial.main_topic , :length => 40), tutorial_path(tutorial) %></td>
+						<td>
+							<%= link_to 'Edit', edit_tutorial_path(tutorial), :class => 'btn btn-mini' %>
+							<%= link_to 'Destroy', tutorial_path(tutorial), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+    </div>
+    <div class="tab-pane" id="6">
+      	<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Review</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @current_user_tutorial_reviews.each do |tutorial_review| %>
+					<tr>
+						<td><%= link_to truncate(tutorial_review.review, :length => 65), tutorial_review_path(tutorial_review) %></td>
+
+						<td>
+							<%= link_to 'Edit', edit_tutorial_review_path(tutorial_review), :class => 'btn btn-mini' %>
+							<%= link_to 'Destroy', tutorial_review_path(tutorial_review), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+    </div>
+  </div>
+</div>

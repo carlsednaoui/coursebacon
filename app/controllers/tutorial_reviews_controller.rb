@@ -5,7 +5,7 @@ class TutorialReviewsController < ApplicationController
 	# GET /tutorial_reviews
 	# GET /tutorial_reviews.json
 	def index
-		@tutorial_reviews = TutorialReview.all
+		@tutorial_reviews = TutorialReview.find_all_by_user_id(current_user.id)
 
 		respond_to do |format|
 			format.html # index.html.erb

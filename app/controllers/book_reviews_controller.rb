@@ -5,7 +5,7 @@ class BookReviewsController < ApplicationController
 	# GET /book_reviews
 	# GET /book_reviews.json
 	def index
-		@book_reviews = BookReview.all
+		@book_reviews = BookReview.find_all_by_user_id(current_user.id)
 
 		respond_to do |format|
 			format.html # index.html.erb
