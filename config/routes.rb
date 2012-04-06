@@ -12,6 +12,7 @@ Coursebacon::Application.routes.draw do
 	match "/dashboard" => "dashboard#index"
 	match "/about" => "home#about"
 	match "/team" => "home#about"
+	match "/tos" => "home#tos"
 
 	match "/sign-up" => "home#sign_up"
 	match "/auth/:provider/callback" => "sessions#create"

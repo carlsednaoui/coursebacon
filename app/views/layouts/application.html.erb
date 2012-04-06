@@ -67,86 +67,93 @@
  </div>
 
  <body>
-
 	 <!--Social Media is below-->
 	 <div id="fb-root"></div>
-	 <script>(function(d, s, id) {
-		   var js, fjs = d.getElementsByTagName(s)[0];
-		     if (d.getElementById(id)) return;
-		       js = d.createElement(s); js.id = id;
-		         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=271024399642949";
-			   fjs.parentNode.insertBefore(js, fjs);
-			   }(document, 'script', 'facebook-jssdk'));
-		   </script>
+	 <script>
+		 (function(d, s, id) {
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) return;
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=271024399642949";
+			 fjs.parentNode.insertBefore(js, fjs);
+		 }(document, 'script', 'facebook-jssdk'));
+	 </script>
 
- <!-- Place this render call where appropriate -->
- <script type="text/javascript">
-	 (function() {
-	  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-	  po.src = 'https://apis.google.com/js/plusone.js';
-	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	  })();
-  </script>
+	 <!-- Place this render call where appropriate -->
+	 <script type="text/javascript">
+		 (function() {
+		  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		  po.src = 'https://apis.google.com/js/plusone.js';
+		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+	  </script>
+	  <!--Social Media is above-->
 
-  <!--Social Media is above-->
+	  <!--Validation is below-->
+	  <div class="validation span12">
+		  <div class"row-fluid">
+			  <% flash.each do |key, value|%>
+				  <div class="alert">
+					  <div id="flash_<%= key %>">
+						  <%= value %>
+					  </div>
+				  </div>
+			  <% end %>
+		  </div>
+	  </div>
+	  <!--Validation is above-->
 
-  <!--Validation is below-->
-  <div class="validation span12">
-	  <div class"row-fluid">
-		  <% flash.each do |key, value|%>
-			  <div class="alert">
-				  <div id="flash_<%= key %>">
-					  <%= value %>
+	  <div class="container-fluid">
+		  <div class"row-fluid">
+			  <div class="span10">
+
+				  <%= yield %>
+
+			  </div>
+
+			  <div class="span2">
+				  <h2>Pssst</h2>
+				  <% if current_user %>
+					  <p>
+					  Hey <%= current_user.name.titleize %>, we just wanted to tell you that you rock.
+					  <br />
+					  <br />
+					  Seriously, you do.
+					  </p>
+				  <% elsif %>
+					  <p>
+					  Stop being a rebel. 
+					  <br />
+					  <br />
+					  Join our community and help others discover the best learning resources.
+					  </p>
+					  <%= link_to 'Take 15 seconds and Sign Up', '/sign-up', :class => 'btn btn-danger' %>
+				  <% end %>
+
+				  <br />
+				  <br />
+				  <br />
+				  <div class="twitter">
+					  <a href="https://twitter.com/share" class="twitter-share-button" data-via="coursebacon" data-count="none">Tweet</a>
+					  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				  </div>
+				  <div class="facebook">
+					  <div class="fb-like" data-href="http://www.coursebacon.com" data-send="true" data-layout="button_count" data-width="200" data-show-faces="true"></div>
+				  </div>
+				  <div class="gplus">
+					  <g:plusone size="medium" annotation="inline" width="200" href="https://plus.google.com/b/103121074654450310803"></g:plusone>
+				  </div>
+				  <%= image_tag"be-social.png" %>
+			  </div>
+			  <div class"row-fluid">
+				  <div class="span12 footer">
+					  <div class="well">
+						  <p class="pull-right">
+						  <%= link_to "What's all this Bacon about?", about_path %> | 
+						  <%= link_to "Terms of Services", tos_path %>
+						  </p>
+					  </div>
 				  </div>
 			  </div>
-		  <% end %>
-	  </div>
-  </div>
-  <!--Validation is above-->
-
-  <div class="container-fluid">
-	  <div class"row-fluid">
-		  <div class="span10">
-
-			  <%= yield %>
-
-		  </div>
-
-		  <div class="span2">
-			  <h2>Pssst</h2>
-			  <% if current_user %>
-				  <p>
-				  Hey <%= current_user.name.titleize %>, we just wanted to tell you that you rock.
-				  <br />
-				  <br />
-				  Seriously, you do.
-				  </p>
-			  <% elsif %>
-				  <p>
-				  Stop being a rebel. 
-				  <br />
-				  <br />
-				  Join our community and help others discover the best learning resources.
-				  </p>
-				  <%= link_to 'Take 15 seconds and Sign Up', '/sign-up', :class => 'btn btn-danger' %>
-			  <% end %>
-
-			  <br />
-			  <br />
-			  <br />
-			  <div class="twitter">
-				  <a href="https://twitter.com/share" class="twitter-share-button" data-via="coursebacon" data-count="none">Tweet</a>
-				  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			  </div>
-			  <div class="facebook">
-				  <div class="fb-like" data-href="http://www.coursebacon.com" data-send="true" data-layout="button_count" data-width="200" data-show-faces="true"></div>
-			  </div>
-			  <div class="gplus">
-				  <g:plusone size="medium" annotation="inline" width="200" href="https://plus.google.com/b/103121074654450310803"></g:plusone>
-			  </div>
-			  <%= image_tag"be-social.png" %>
-
-
-		  </div>
-	  </body>
-  </html>
+		  </body>
+	  </html>

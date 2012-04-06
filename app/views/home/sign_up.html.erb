@@ -11,14 +11,14 @@
 	<br />
 	<br />
 	<p>
-	<strong>Don't use these services?</strong>
+	<strong>Don't use these services?</strong> No worries, it's ok to be old school.
 	<%= link_to "Create an account with your email", new_identity_path %> or Sign In below.
 	</p>
 	<br />
 
 	<%= form_tag "/auth/identity/callback" do %>
 		<div class="field">
-			<%= label_tag :auth_key, "Email" %>
+			<%= label_tag :auth_key, "Registered Email" %>
 			<%= text_field_tag :auth_key %>
 		</div>
 		<div class="field">

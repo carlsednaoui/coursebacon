@@ -60,6 +60,8 @@ Tutorial.create(:title => 'Rails Tutorials', :url => 'http://rubysource.com/cate
 
 Tutorial.create(:title => 'Nginx Tutorials', :url => 'http://agentzh.org/misc/nginx/agentzh-nginx-tutorials-enuk.html', :offered_by => 'agentzh', :main_topic => 'Nginx', :description => "One principle that I've been trying to follow in these tutorials is to use small and concise configure examples to validate the concepts and principles that are being explained. I hope this can help the reader to build the good habit of not accepting others' viewpoints or statements without testing them. This style may have something to do with my QA background.", :user_id => 1)
 
+Tutorial.create(:title => 'Startup, This is How Design Works', :url => 'http://startupsthisishowdesignworks.com/', :offered_by => 'Wells Riley', :main_topic => 'Design', :description => "Companies like Apple are making design impossible for startups to ignore. Startups like Path, Airbnb, Square, and Massive Health have design at the core of their business, and they're doing phenomenal work. But what is 'design' actually? Is it a logo? A Wordpress theme? An innovative UI?", :user_id => 1)
+
 #Course.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Tutorial.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Book.create(:title => '', :url => '', :main_topic => '', :description => "", :user_id => 1)

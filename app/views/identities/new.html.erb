@@ -15,7 +15,7 @@
 	</div>
 	<div class="field">
 		<%= label_tag :email %>
-		<%= text_field_tag :email, @identity.try(:email) %>
+		<%= text_field_tag :email, @identity.try(:email), :placeholder => "We're not pigs, we don't spam" %>
 	</div>
 	<div class="field">
 		<%= label_tag :password %>
