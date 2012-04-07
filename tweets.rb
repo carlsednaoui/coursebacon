@@ -1,20 +1,70 @@
-@course = Course.all
-
-@course.each do |course|
+def get_course_tweets
+@courses = Course.all
+@courses.each do |course|
 	url = course.url
-		tweets = Twitter.search(url, {:rpp => 3, :recent => true, :show_user => true})
-		tweets.each do |tweet|
-			puts tweet.text
-			puts tweet.from_user
-			puts tweet.id
-			puts "*******"
+	tweets = Twitter.search(url, {:rpp => 100, :recent => true, :show_user => true})
+	tweets.each do |tweet_info|
+		unless Tweet.find_by_tweet_id(tweet_info.id).present?
+			tweet = Tweet.new
+			tweet.course_id = course.id
+			tweet.tweet_id = tweet_info.id
+			tweet.tweet_text = tweet_info.text
+			tweet.from_user = tweet_info.from_user
+			begin
+				tweet.save!
+			rescue
+			end
+			puts "***courses***"
+		end
 	end
-	break
+end
+end
+
+def get_book_tweets
+	@books = Book.all
+	@books.each do |book|
+		url = book.url
+		tweets = Twitter.search(url, {:rpp => 100, :recent => true, :show_user => true})
+		tweets.each do |tweet_info|
+			unless Tweet.find_by_tweet_id(tweet_info.id).present?
+				tweet = Tweet.new
+				tweet.book_id = book.id
+				tweet.tweet_id = tweet_info.id
+				tweet.tweet_text = tweet_info.text
+				tweet.from_user = tweet_info.from_user
+				begin
+					tweet.save!
+				rescue
+				end
+				puts "***books***"
+			end
+		end
+	end
 end
 
 
-<h2>People talking about this course</h2>
-<% tweets = Twitter.search(@course.url, {:rpp => 3, :recent => true, :show_user => true}) %>
-<% tweets.each do |tweet| %>
-        <%= link_to image_tag("http://api.twitter.com/1/users/profile_image/#{tweet.from_user}.mini"), "http://www.twitter.com/#{tweet.from_user}/status/#{tweet.id}", :target => "_blank" %>
-	<% end %>
+def get_tutorial_tweets
+	@tutorials = Tutorial.all
+	@tutorials.each do |tutorial|
+		url = tutorial.url
+		tweets = Twitter.search(url, {:rpp => 100, :recent => true, :show_user => true})
+		tweets.each do |tweet_info|
+			unless Tweet.find_by_tweet_id(tweet_info.id).present?
+				tweet = Tweet.new
+				tweet.tutorial_id = tutorial.id
+				tweet.tweet_id = tweet_info.id
+				tweet.tweet_text = tweet_info.text
+				tweet.from_user = tweet_info.from_user
+				begin
+					tweet.save!
+				rescue
+				end
+				puts "***tutorial***"
+			end
+		end
+	end
+end
+
+get_course_tweets
+get_book_tweets
+get_tutorial_tweets

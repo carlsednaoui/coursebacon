@@ -24,6 +24,8 @@ class TutorialsController < ApplicationController
 		@tutorial = Tutorial.find(params[:id])
 		@tutorial_reviews = TutorialReview.find_all_by_tutorial_id(@tutorial.id).reverse
 
+		@tweets = Tweet.find_all_by_tutorial_id(@tutorial.id)
+
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render :json => @tutorial }

@@ -23,6 +23,8 @@ class CoursesController < ApplicationController
 		@course = Course.find(params[:id])
 		@course_reviews = CourseReview.find_all_by_course_id(@course.id).reverse
 
+		@tweets = Tweet.find_all_by_course_id(@course.id)
+
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render :json => @course }

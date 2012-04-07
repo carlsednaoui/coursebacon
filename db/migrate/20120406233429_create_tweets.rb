@@ -4,6 +4,9 @@ class CreateTweets < ActiveRecord::Migration
       t.string :from_user
       t.string :tweet_text
       t.integer :tweet_id
+      t.integer :course_id
+      t.integer :book_id
+      t.integer :tutorial_id
       t.boolean :tweet_already_exists
       t.boolean :tweet_posted_to_reviews
 

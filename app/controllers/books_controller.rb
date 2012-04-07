@@ -22,6 +22,8 @@ class BooksController < ApplicationController
 		@book = Book.find(params[:id])
 		@book_reviews = BookReview.find_all_by_book_id(@book.id).reverse
 
+		@tweets = Tweet.find_all_by_book_id(@book.id)
+
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render :json => @book }
