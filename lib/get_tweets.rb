@@ -1,3 +1,5 @@
+require 'pg'
+
 def get_course_tweets
 @courses = Course.all
 @courses.each do |course|
