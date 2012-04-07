@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(:version => 20120406233429) do
   create_table "tweets", :force => true do |t|
     t.string   "from_user"
     t.string   "tweet_text"
-    t.string   "tweet_id"
+    t.integer  "tweet_id"
     t.integer  "course_id"
     t.integer  "book_id"
     t.integer  "tutorial_id"
