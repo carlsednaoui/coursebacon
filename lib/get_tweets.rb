@@ -1,5 +1,3 @@
-require 'pg'
-
 def get_course_tweets
 @courses = Course.all
 @courses.each do |course|
@@ -12,11 +10,11 @@ def get_course_tweets
 			tweet.tweet_id = tweet_info.id
 			tweet.tweet_text = tweet_info.text
 			tweet.from_user = tweet_info.from_user
-			begin
+		#	begin
 				tweet.save!
-			rescue
-			end
-			puts "***courses***"
+		#	rescue
+		#	end
+		#	puts "***courses***"
 		end
 	end
 end
