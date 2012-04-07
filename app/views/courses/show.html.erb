@@ -23,7 +23,7 @@
 <p>
   <b>Description</b><br>
 <% if @course.description.eql? ""%>
-	N/A
+	Ohh no, there is no course description in here. That's no bueno!
 	<% else %>	
   <%= @course.description %>
   <% end %>
@@ -58,11 +58,14 @@
 <% end %>
 
 <!--Show Tweets-->
+<% unless @tweets.eql? [] %>
 <div class="footer">
+	<h2><small>People talking about this course:</small></h2>
 <% @tweets.each do |tweet| %>
 	<%= link_to image_tag("http://api.twitter.com/1/users/profile_image/#{tweet.from_user}.mini", :size => "48x48"), "http://www.twitter.com/#{tweet.from_user}/status/#{tweet.tweet_id}", :target => "_blank" %>
 <% end %>
 </div>
+<% end %>
 <!--Show Tweets-->
 
 <div class="form-actions">
