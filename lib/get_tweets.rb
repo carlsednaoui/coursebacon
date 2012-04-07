@@ -12,7 +12,7 @@ def get_course_tweets
 			tweet.from_user = tweet_info.from_user
 			begin
 				tweet.save!
-			rescue
+			rescue => error
 			end
 			puts "***courses***"
 		end
@@ -34,7 +34,7 @@ def get_book_tweets
 				tweet.from_user = tweet_info.from_user
 				begin
 					tweet.save!
-				rescue
+				rescue => error
 				end
 				puts "***books***"
 			end
@@ -57,7 +57,7 @@ def get_tutorial_tweets
 				tweet.from_user = tweet_info.from_user
 				begin
 					tweet.save!
-				rescue
+				rescue => error
 				end
 				puts "***tutorial***"
 			end
