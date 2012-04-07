@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  author: MyString
+  tweet: MyString
+  tweet_already_exists: false
+  tweet_posted_to_reviews: false
+
+two:
+  author: MyString
+  tweet: MyString
+  tweet_already_exists: false
+  tweet_posted_to_reviews: false
