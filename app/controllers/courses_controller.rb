@@ -25,7 +25,6 @@ class CoursesController < ApplicationController
 
 		@tweets = Tweet.find_all_by_course_id(@course.id)
 		
-		def get_course_tweets
     @courses = Course.all
     @courses.each do |course|
     	url = course.url
@@ -45,9 +44,8 @@ class CoursesController < ApplicationController
     		end
     	end
     end
-    end
+    
 
-    def get_book_tweets
     	@books = Book.all
     	@books.each do |book|
     		url = book.url
@@ -67,10 +65,8 @@ class CoursesController < ApplicationController
     			end
     		end
     	end
-    end
 
 
-    def get_tutorial_tweets
     	@tutorials = Tutorial.all
     	@tutorials.each do |tutorial|
     		url = tutorial.url
@@ -90,11 +86,7 @@ class CoursesController < ApplicationController
     			end
     		end
     	end
-    end
 
-    get_course_tweets
-    get_book_tweets
-    get_tutorial_tweets
     
 
 		respond_to do |format|
