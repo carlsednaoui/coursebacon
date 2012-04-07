@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330032632) do
+ActiveRecord::Schema.define(:version => 20120406233429) do
 
   create_table "book_reviews", :force => true do |t|
     t.integer  "book_id"
@@ -77,6 +77,19 @@ ActiveRecord::Schema.define(:version => 20120330032632) do
     t.string   "offered_by"
     t.text     "description"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tweets", :force => true do |t|
+    t.string   "from_user"
+    t.string   "tweet_text"
+    t.string   "tweet_id"
+    t.integer  "course_id"
+    t.integer  "book_id"
+    t.integer  "tutorial_id"
+    t.boolean  "tweet_already_exists"
+    t.boolean  "tweet_posted_to_reviews"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
