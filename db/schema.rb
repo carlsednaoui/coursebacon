@@ -82,8 +82,9 @@ ActiveRecord::Schema.define(:version => 20120406233429) do
   end
 
   create_table "tweets", :force => true do |t|
-    t.string   "author"
-    t.string   "tweet"
+    t.string   "from_user"
+    t.string   "tweet_text"
+    t.integer  "tweet_id"
     t.boolean  "tweet_already_exists"
     t.boolean  "tweet_posted_to_reviews"
     t.datetime "created_at"
