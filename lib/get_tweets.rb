@@ -4,7 +4,7 @@ def get_course_tweets
 	url = course.url
 	tweets = Twitter.search(url, {:rpp => 100, :recent => true, :show_user => true})
 	tweets.each do |tweet_info|
-		unless Tweet.find_by_tweet_id(tweet_info.id).present?
+#		unless Tweet.find_by_tweet_id(tweet_info.id).present?
 			tweet = Tweet.new
 			tweet.course_id = course.id
 			tweet.tweet_id = tweet_info.id
@@ -15,7 +15,7 @@ def get_course_tweets
 		#	rescue
 		#	end
 		#	puts "***courses***"
-		end
+#		end
 	end
 end
 end
