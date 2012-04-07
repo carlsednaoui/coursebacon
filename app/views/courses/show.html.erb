@@ -60,7 +60,7 @@
 <!--Show Tweets-->
 <div class="footer">
 <% @tweets.each do |tweet| %>
-	<%= link_to image_tag("http://api.twitter.com/1/users/profile_image/#{tweet.from_user}.mini"), "http://www.twitter.com/#{tweet.from_user}/status/#{tweet.tweet_id}", :target => "_blank" %>
+	<%= link_to image_tag("http://api.twitter.com/1/users/profile_image/#{tweet.from_user}.mini", :size => "48x48"), "http://www.twitter.com/#{tweet.from_user}/status/#{tweet.tweet_id}", :target => "_blank" %>
 <% end %>
 </div>
 <!--Show Tweets-->
