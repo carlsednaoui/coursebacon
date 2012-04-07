@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
+	<head>
+		<title>The page you were looking for doesn't exist (404)</title>
+		<!--Main CSS Stylesheet is below - saved in public/stylesheets-->
+		<link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
+
+		<!--Below is the Google Analytics tracking code-->
+  <script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-25123782-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	   })();
+
+</script>
+<!--Above is the Google Analytics tracking code-->
+
 </head>
 
 <body>
+	<center>
   <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
+    <h1>Hmm, this is sketchy... the page you are looking for does not exist.</h1>
+    <p>Stay away from sketchy stuff and go back to <a href="http://www.coursebacon.com">CourseBacon</a>.</p>
+     <img src="../images/fail_404.gif" />
+	<p>PS: Thanks for using CourseBacon - #YouRock!</p>
   </div>
+  </center>
 </body>
 </html>
