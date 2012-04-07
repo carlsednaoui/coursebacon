@@ -13,6 +13,7 @@ def get_course_tweets
 			begin
 				tweet.save!
 			rescue => error
+				puts error
 			end
 			puts "***courses***"
 		end
