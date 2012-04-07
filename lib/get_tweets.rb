@@ -15,7 +15,6 @@ def get_course_tweets
 			rescue => error
 				puts error
 			end
-			puts "***courses***"
 		end
 	end
 end
@@ -36,8 +35,8 @@ def get_book_tweets
 				begin
 					tweet.save!
 				rescue => error
+					puts error
 				end
-				puts "***books***"
 			end
 		end
 	end
@@ -59,8 +58,8 @@ def get_tutorial_tweets
 				begin
 					tweet.save!
 				rescue => error
+					puts error
 				end
-				puts "***tutorial***"
 			end
 		end
 	end
