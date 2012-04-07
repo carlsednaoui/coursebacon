@@ -1,3 +1,5 @@
+require "sequel"
+
 def get_course_tweets
 @courses = Course.all
 @courses.each do |course|
