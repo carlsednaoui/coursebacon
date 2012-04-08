@@ -13,25 +13,9 @@
 			<% end %>
 		</tr>
 	</thead>
-	<tbody>
-		<% @books.each do |book| %>
-			<tr>
-				<td><%= link_to truncate(book.title , :length => 60), book_path(book) %></td>
-				<td><%= link_to truncate(book.url , :length => 20), book_path(book) %></td>
-				<td><%= link_to truncate(book.main_topic , :length => 20), book_path(book) %></td>
-				<% if current_user %>
-					<% if book.user == current_user %>
-						<td>
-							<%= link_to 'Edit', edit_book_path(book), :class => 'btn btn-mini' %>
-							<%= link_to 'Destroy', book_path(book), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-						</td>
-					<% else %>
-						<td><%= link_to truncate(book.url, :length => 25), book_path(book) %></td>
-					<% end %>
-				<% end %>
-			</tr>
-		<% end %>
-	</tbody>
+	<tbody id='books'>
+		    <%= render @books %>
+		</tbody>
 </table>
 
 <% if current_user %>

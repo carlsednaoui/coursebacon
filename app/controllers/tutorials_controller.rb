@@ -13,6 +13,7 @@ class TutorialsController < ApplicationController
 		@tutorials = Tutorial.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
 
 		respond_to do |format|
+		  format.js
 			format.html # index.html.erb
 			format.json { render :json => @tutorials }
 		end

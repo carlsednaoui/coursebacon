@@ -11,6 +11,7 @@ class BooksController < ApplicationController
 		@books = Book.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
 
 		respond_to do |format|
+		  format.js
 			format.html # index.html.erb
 			format.json { render :json => @books }
 		end

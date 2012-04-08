@@ -1,0 +1,6 @@
+$('#tutorials').append('<%= j render(@tutorials) %>');
+<% if (@tutorials.current_page < @tutorials.num_pages) %>
+        $('.pagination').replaceWith('<%= j paginate(@tutorials) %>');
+<% else %>
+        $('.pagination').remove();
+<% end %>

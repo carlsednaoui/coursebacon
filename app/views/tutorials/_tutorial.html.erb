@@ -1,0 +1,15 @@
+<tr>
+	<td><%= link_to truncate(tutorial.title , :length => 60), tutorial_path(tutorial) %></td>
+	<td><%= link_to truncate(tutorial.offered_by , :length => 20), tutorial_path(tutorial) %></td>
+	<td><%= link_to truncate(tutorial.main_topic , :length => 20), tutorial_path(tutorial) %></td>
+	<% if current_user %>
+		<% if tutorial.user == current_user %>
+			<td>
+				<%= link_to 'Edit', edit_tutorial_path(tutorial), :class => 'btn btn-mini' %>
+				<%= link_to 'Destroy', tutorial_path(tutorial), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+			</td>
+		<% else %>
+			<td><%= link_to truncate(tutorial.url, :length => 25), tutorial_path(tutorial) %></td>
+		<% end %>
+	<% end %>
+</tr>
