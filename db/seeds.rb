@@ -70,6 +70,8 @@ Book.create(:title => 'Command Line Crash Course', :url => 'http://learncodetheh
 
 Tutorial.create(:title => 'Blogging Platform For Hackers', :url => 'http://bionicspirit.com/blog/2012/01/05/blogging-for-hackers.html', :offered_by => 'Bionic Spirit', :main_topic => 'Ruby on Rails', :description => "I'm showing you how to: host your own static website on Heroku's free plan; use Google's App Engine as a CDN, for better responsiveness; keep Heroku's free dyno alive, by using a GAE cron job; have a very responsive, scalable and secure blog, with ultimate; control and simplicity, for zero bucks per month;", :user_id => 1)
 
+Book.create(:title => 'MBA Mondays', :url => 'http://mba-mondays.pandamian.com/tableofcontents/', :main_topic => 'Business School', :description => "I'd like to announce a new series here at AVC. I'm calling it 'MBA Mondays'. Every Monday I'll write a post that is about a topic I learned in business school. I'll keep it dead simple. And I'll try to connect it to some real world experience. Fred Wilson is the principal VC behind Union Square Ventures and avc.com. He is responsible for investments in Twitter, Tumblr, Foursquare, and Etsy, and spends his time in New York with his wife Gotham Girl and two daughters Jessica and Emily. Read", :user_id => 1)
+
 #Course.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Tutorial.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Book.create(:title => '', :url => '', :main_topic => '', :description => "", :user_id => 1)
