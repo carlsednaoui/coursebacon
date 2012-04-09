@@ -68,6 +68,8 @@ Book.create(:title => 'Git Community Book', :url => 'http://book.git-scm.com/ind
 
 Book.create(:title => 'Command Line Crash Course', :url => 'http://learncodethehardway.org/cli/book/', :main_topic => 'Command Line', :description => "I wrote this book really quickly as a way to bootstrap students for my other books. Many students don't know how to use the basics of the command line interface, and it was getting in the way of their learning. This book is designed to be something they can complete in about a day to a week and then get enough skill at the command line to graduate to other books. This book isn't a book about master wizardry system administration. It's just a quick introduction to get newbies going.", :user_id => 1)
 
+Tutorial.create(:title => 'Blogging Platform For Hackers', :url => 'http://bionicspirit.com/blog/2012/01/05/blogging-for-hackers.html', :offered_by => 'Bionic Spirit', :main_topic => 'Ruby on Rails', :description => "I'm showing you how to: host your own static website on Heroku's free plan; use Google's App Engine as a CDN, for better responsiveness; keep Heroku's free dyno alive, by using a GAE cron job; have a very responsive, scalable and secure blog, with ultimate; control and simplicity, for zero bucks per month;", :user_id => 1)
+
 #Course.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Tutorial.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Book.create(:title => '', :url => '', :main_topic => '', :description => "", :user_id => 1)
