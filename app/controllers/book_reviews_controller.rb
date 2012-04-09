@@ -17,6 +17,7 @@ class BookReviewsController < ApplicationController
 	# GET /book_reviews/1.json
 	def show
 		@book_review = BookReview.find(params[:id])
+		@book = Book.find_by_id(@book_review.book_id)
 
 		respond_to do |format|
 			format.html # show.html.erb

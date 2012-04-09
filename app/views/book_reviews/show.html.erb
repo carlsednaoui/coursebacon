@@ -2,7 +2,7 @@
 
 <p>
   <b>Book:</b>
-  <%= link_to Book.find_by_id(@book_review.book_id).title, Book.find_by_id(@book_review.book_id) %>
+  <%= link_to @book.title, @book %>
 </p>
 
 <p>
@@ -25,3 +25,4 @@ No
   <%= link_to 'Edit', edit_book_review_path(@book_review), :class => 'btn' %>
   <%= link_to 'Delete', book_review_path(@book_review), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>
+<%= link_to "Go Back To Book", @book, :class => "btn btn-primary btn-large" %>

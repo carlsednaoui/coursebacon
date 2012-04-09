@@ -17,6 +17,7 @@ class TutorialReviewsController < ApplicationController
 	# GET /tutorial_reviews/1.json
 	def show
 		@tutorial_review = TutorialReview.find(params[:id])
+		@tutorial = Tutorial.find_by_id(@tutorial_review.tutorial_id)
 
 		respond_to do |format|
 			format.html # show.html.erb

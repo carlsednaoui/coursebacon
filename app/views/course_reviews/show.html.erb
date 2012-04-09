@@ -2,7 +2,7 @@
 
 <p>
   <b>Course:</b>
-  <%= link_to Course.find_by_id(@course_review.course_id).title, Course.find_by_id(@course_review.course_id) %>
+  <%= link_to @course.title, @course %>
 </p>
 
 <p>
@@ -25,3 +25,5 @@ No
   <%= link_to 'Edit', edit_course_review_path(@course_review), :class => 'btn' %>
   <%= link_to 'Delete', course_review_path(@course_review), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>
+
+<%= link_to "Go Back To Course", @course, :class => "btn btn-primary btn-large" %>

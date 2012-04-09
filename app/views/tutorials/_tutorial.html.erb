@@ -6,7 +6,7 @@
 		<% if tutorial.user == current_user %>
 			<td>
 				<%= link_to 'Edit', edit_tutorial_path(tutorial), :class => 'btn btn-mini' %>
-				<%= link_to 'Destroy', tutorial_path(tutorial), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+				<%= link_to 'Delete', tutorial_path(tutorial), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
 			</td>
 		<% else %>
 			<td><%= link_to truncate(tutorial.url, :length => 25), tutorial_path(tutorial) %></td>

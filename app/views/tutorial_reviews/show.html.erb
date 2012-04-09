@@ -2,7 +2,7 @@
 
 <p>
   <b>Tutorial:</b>
-  <%= link_to Tutorial.find_by_id(@tutorial_review.tutorial_id).title, Tutorial.find_by_id(@tutorial_review.tutorial_id) %>
+  <%= link_to @tutorial.title, @tutorial %>
 </p>
 
 <p>
@@ -25,3 +25,5 @@ No
   <%= link_to 'Edit', edit_tutorial_review_path(@tutorial_review), :class => 'btn' %>
   <%= link_to 'Delete', tutorial_review_path(@tutorial_review), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>
+
+<%= link_to "Go Back To Tutorial", @tutorial, :class => "btn btn-primary btn-large" %>
