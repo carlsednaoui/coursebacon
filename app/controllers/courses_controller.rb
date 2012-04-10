@@ -23,8 +23,10 @@ class CoursesController < ApplicationController
 	def show
 		@course = Course.find(params[:id])
 		@course_reviews = CourseReview.find_all_by_course_id(@course.id).reverse
-
+		
 		@tweets = Tweet.find_all_by_course_id(@course.id)
+		#@tweets = Tweet.order("tweet_id desc").find_all_by_course_id(@course.id).first(15)
+		
 		
 		respond_to do |format|
 			format.html # show.html.erb
