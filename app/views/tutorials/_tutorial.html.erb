@@ -1,4 +1,5 @@
 <tr>
+	<td><%= link_to Tweet.find_all_by_tutorial_id(tutorial.id).count, tutorial_path(tutorial) %></td>
 	<td><%= link_to truncate(tutorial.title , :length => 60), tutorial_path(tutorial) %></td>
 	<td><%= link_to truncate(tutorial.offered_by , :length => 20), tutorial_path(tutorial) %></td>
 	<td><%= link_to truncate(tutorial.main_topic , :length => 20), tutorial_path(tutorial) %></td>

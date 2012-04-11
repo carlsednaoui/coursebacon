@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
 		@course_reviews = CourseReview.find_all_by_course_id(@course.id).reverse
 		
 		@tweets = Tweet.find_all_by_course_id(@course.id)
-		#@tweets = Tweet.order("tweet_id desc").find_all_by_course_id(@course.id).first(15)
+		#@tweets = Tweet.order("tweet_id desc").find_all_by_course_id(@course.id).first(54)
 		
 		
 		respond_to do |format|
