@@ -123,6 +123,8 @@ Course.create(:title => '21 Critical Lessons for Entrepreneurs', :url => 'http:/
 
 Course.create(:title => "An Entrepreneur's Checklist", :url => 'http://www.udemy.com/an-entrepreneurs-checklist/', :offered_by => 'Udemy', :main_topic => 'Entrepreneurship', :description => "No matter what business vertical you're entering, serial entrepreneur Steve Blank outlines a few points of necessary focus for the emerging business start-up, including market opportunity, market regulations and distribution, competitors and complimentors, and technology breakthroughs. He notes that the customer is not always the same thing as the payer, and that this bifurcation is creating interesting new business models.", :user_id => 1)
 
+Tutorial.create(:title => 'Learn to Program the Arduino', :url => 'http://www.linuxjournal.com/content/learning-program-arduino#', :offered_by => 'Linux Journal', :main_topic => 'Arduino', :description => "This article should acquaint you with basic Arduino programming and show you how to write programs that interact with objects in the real world. (A mandatory disclaimer: the last time I really studied electronics was way back in high school, so this article focuses more on the programming aspects, rather than the electronic side of things.)", :user_id => 1)
+
 #Course.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Tutorial.create(:title => '', :url => '', :offered_by => '', :main_topic => '', :description => "", :user_id => 1)
 #Book.create(:title => '', :url => '', :main_topic => '', :description => "", :user_id => 1)
