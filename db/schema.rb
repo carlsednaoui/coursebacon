@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406233429) do
+ActiveRecord::Schema.define(:version => 20120413005759) do
 
   create_table "book_reviews", :force => true do |t|
     t.integer  "book_id"
@@ -90,6 +90,17 @@ ActiveRecord::Schema.define(:version => 20120406233429) do
     t.integer  "tutorial_id"
     t.boolean  "tweet_already_exists"
     t.boolean  "tweet_posted_to_reviews"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "url_data", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "book_id"
+    t.integer  "tutorial_id"
+    t.integer  "mozrank"
+    t.integer  "moz_backlinks"
+    t.integer  "google_backlinks"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

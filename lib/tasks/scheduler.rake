@@ -1,5 +1,8 @@
 desc "This task is called by the Heroku scheduler add-on"
 task :get_tweets => :environment do
+
+	puts "Updating feed..."
+
 	def get_course_tweets
 		@courses = Course.all
 		@courses.each do |course|
@@ -69,4 +72,6 @@ task :get_tweets => :environment do
 	get_course_tweets
 	get_book_tweets
 	get_tutorial_tweets
+
+	puts "done."
 end

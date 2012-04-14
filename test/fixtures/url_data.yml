@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  course_id: 1
+  book_id: 1
+  tutorial_id: 1
+  mozrank: 1
+  moz_backlinks: 1
+  google_backlinks: 1
+
+two:
+  course_id: 1
+  book_id: 1
+  tutorial_id: 1
+  mozrank: 1
+  moz_backlinks: 1
+  google_backlinks: 1

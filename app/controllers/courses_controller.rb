@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
 		
 		@tweets = Tweet.find_all_by_course_id(@course.id)
 # The query below selects the last 54 tweets for a specific course, unique by user, and only that user's last tweet is displayer
-		#
+		
 		#@tweets = Tweet.where("tweets.updated_at <= (SELECT MIN(t.updated_at) FROM tweets AS t WHERE t.from_user=tweets.from_user)").order("tweets.tweet_id desc").find_all_by_course_id(@course.id).first(54)
 		
 		respond_to do |format|
