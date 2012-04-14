@@ -1,6 +1,8 @@
 Coursebacon::Application.routes.draw do
 	root :to => "home#index"
 
+	resources :url_datas
+
 	resources :books
 	resources :book_reviews
 	resources :tutorials

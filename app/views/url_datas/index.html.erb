@@ -1,0 +1,22 @@
+<h1>Data</h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Course Id</th>
+			<th>Google Backlinks</th>
+			<th>SEOMoz Backlinks</th>
+			<th>MozRank</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @data.each do |data| %>
+			<tr>
+				<td><%= data.course_id %></td>
+				<td><%= data.google_backlinks %></td>
+				<td><%= data.moz_backlinks %></td>
+				<td><%= data.mozrank %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
