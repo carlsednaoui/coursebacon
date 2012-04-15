@@ -14,6 +14,22 @@ module ApplicationHelper
 		return course_popularity
 	end
 
+	def popular_tutorial(tutorial_id, backlinks = @backlinks)
+		tweets = Tweet.find_all_by_tutorial_id(tutorial_id).count
+		links = UrlData.find_by_tutorial_id(tutorial_id).moz_backlinks.to_f + UrlData.find_by_tutorial_id(tutorial_id).google_backlinks.to_f
+		course_popularity = tweets + links
+		course_popularity = course_popularity.to_i
+		return course_popularity
+	end
+
+	def popular_book(book_id, backlinks = @backlinks)
+		tweets = Tweet.find_all_by_book_id(book_id).count                
+		links = UrlData.find_by_book_id(book_id).moz_backlinks.to_f + UrlData.find_by_book_id(book_id).google_backlinks.to_f
+		course_popularity = tweets + links
+		course_popularity = course_popularity.to_i
+		return course_popularity
+	end
+
 	def all_backlinks
 		@data = UrlData.all
 
