@@ -8,7 +8,6 @@ class CoursesController < ApplicationController
 	# GET /courses
 	# GET /courses.json
 	def index
-		#@courses = Course.all.reverse
 		@courses = Course.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
 
 		respond_to do |format|
@@ -24,10 +23,10 @@ class CoursesController < ApplicationController
 		@course = Course.find(params[:id])
 		@course_reviews = CourseReview.find_all_by_course_id(@course.id).reverse
 		
-		@tweets = Tweet.find_all_by_course_id(@course.id)
-# The query below selects the last 54 tweets for a specific course, unique by user, and only that user's last tweet is displayer
+		#@tweets = Tweet.find_all_by_course_id(@course.id)
 		
-		#@tweets = Tweet.where("tweets.updated_at <= (SELECT MIN(t.updated_at) FROM tweets AS t WHERE t.from_user=tweets.from_user)").order("tweets.tweet_id desc").find_all_by_course_id(@course.id).first(54)
+		# Selects the last "x" tweets for a specific course, unique by user, and only that user's last tweet is displayer
+		@tweets = Tweet.where("tweets.updated_at <= (SELECT MIN(t.updated_at) FROM tweets AS t WHERE t.from_user=tweets.from_user)").order("tweets.tweet_id desc").find_all_by_course_id(@course.id).first(108)
 		
 		respond_to do |format|
 			format.html # show.html.erb

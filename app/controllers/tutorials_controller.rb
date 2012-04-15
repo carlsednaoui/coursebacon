@@ -25,7 +25,9 @@ class TutorialsController < ApplicationController
 		@tutorial = Tutorial.find(params[:id])
 		@tutorial_reviews = TutorialReview.find_all_by_tutorial_id(@tutorial.id).reverse
 
-		@tweets = Tweet.find_all_by_tutorial_id(@tutorial.id)
+		#@tweets = Tweet.find_all_by_tutorial_id(@tutorial.id)
+
+		@tweets = Tweet.where("tweets.updated_at <= (SELECT MIN(t.updated_at) FROM tweets AS t WHERE t.from_user=tweets.from_user)").order("tweets.tweet_id desc").find_all_by_tutorial_id(@tutorial.id).first(108)
 
 		respond_to do |format|
 			format.html # show.html.erb

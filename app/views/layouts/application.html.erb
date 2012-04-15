@@ -17,155 +17,152 @@
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
 
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<%= link_to "CourseBacon", "/", :class => "brand" %>
+				<div class="nav-collapse pull-right">
+					<ul class="nav">
+						<li><%= link_to "Home", "/" %></li>
+						<li><%= link_to "Courses", :controller => "courses" %></li>
+						<li><%= link_to "Books", :controller => "books" %></li>
+						<li><%= link_to "Tutorials", :controller => "tutorials" %></li>
+						<li class="divider-vertical"></li>
+						<% if current_user %>
+							<li><%= link_to "Dashboard", "/dashboard" %></li>
+							<li><%= link_to "Sign Out", signout_path %></li>
+						<% else %>
+							<li><%= link_to "Sign In", "/sign-up" %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-		<!--GA is below-->
-		<script type="text/javascript">
+	<body>
+		<!--Validation is below-->
+		<div class="validation span12">
+			<div class"row-fluid">
+				<% flash.each do |key, value|%>
+					<div class="alert">
+						<div id="flash_<%= key %>">
+							<%= value %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<!--Validation is above-->
 
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-30186093-1']);
-			_gaq.push(['_trackPageview']);
+		<div class="container-fluid">
+			<div class"row-fluid">
+				<div class="span10">
 
-			(function() {
-			 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			 })();
+					<%= yield %>
 
+				</div>
+
+				<div class="span2">
+					<h2>Pssst</h2>
+					<% if current_user %>
+						<p>
+						Hey <%= current_user.name.titleize %>, we just wanted to tell you that you rock.
+						<br />
+						<br />
+						Seriously, you do.
+						</p>
+					<% elsif %>
+						<p>
+						Stop being a rebel. 
+						<br />
+						<br />
+						Join our community and help others discover the best learning resources.
+						</p>
+						<%= link_to 'Take 15 seconds and Sign Up', '/sign-up', :class => 'btn btn-danger' %>
+					<% end %>
+
+					<br />
+					<br />
+					<br />
+					<div class="twitter">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-via="coursebacon" data-count="none">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div>
+					<div class="facebook">
+						<div class="fb-like" data-href="https://www.facebook.com/pages/CourseBacon/303429439728466" data-send="true" data-layout="button_count" data-width="200" data-show-faces="true"></div>
+					</div>
+					<div class="gplus">
+						<g:plusone size="medium" annotation="inline" width="200" href="https://plus.google.com/b/103121074654450310803"></g:plusone>
+					</div>
+					<%= image_tag"be-social.png" %>
+				</div>
+				<div class"row-fluid">
+					<div class="span12 footer">
+						<div class="well">
+							<p class="pull-left">
+							Stats:
+							<%= @course_num %> courses | 
+							<%= @tutorial_num %> tutorials | 
+							<%= @book_num %> books | 
+							<%= @tweet_num %> people talking about them
+							</p>
+							<p class="pull-right">
+							<%= link_to "What's all this Bacon about?", about_path %> | 
+							<%= link_to "Terms of Services", tos_path %> | 
+							Made from 100% recycled pixels | Not tested on animals
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- JavaScript Goodness is below -->
+
+				<!--GA is below-->
+				<script type="text/javascript">
+					var _gaq = _gaq || [];
+					_gaq.push(['_setAccount', 'UA-30186093-1']);
+					_gaq.push(['_trackPageview']);
+
+					(function() {
+					 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+					 })();</script>
+				 <!--GA is above-->
+
+				 <!-- start Mixpanel -->
+				 <script type="text/javascript">(function(d,c){var a,b,g,e;a=d.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===d.location.protocol?"https:":"http:")+'//api.mixpanel.com/site_media/js/api/mixpanel.2.js';b=d.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);c._i=[];c.init=function(a,d,f){var b=c;"undefined"!==typeof f?b=c[f]=[]:f="mixpanel";g="disable track track_links track_forms register register_once unregister identify name_tag set_config".split(" ");for(e=0;e<
+					 g.length;e++)(function(a){b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}})(g[e]);c._i.push([a,d,f])};window.mixpanel=c})(document,[]);
+				 mixpanel.init("0bcb88433b14ef6b75051931803e10e3");</script>
+			 <!-- end Mixpanel -->
+
+			 <!-- Facebook is below -->
+			 <div id="fb-root"></div>
+			 <script>(function(d, s, id) {
+				 var js, fjs = d.getElementsByTagName(s)[0];
+				 if (d.getElementById(id)) return;
+				 js = d.createElement(s); js.id = id;
+				 js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=271024399642949";
+				 fjs.parentNode.insertBefore(js, fjs);
+			 }(document, 'script', 'facebook-jssdk'));
 		 </script>
-		 <!--GA is above-->
+		 <!-- Facebook is above -->
 
-
-
-		 <!-- start Mixpanel -->
-		 <script type="text/javascript">(function(d,c){var a,b,g,e;a=d.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===d.location.protocol?"https:":"http:")+'//api.mixpanel.com/site_media/js/api/mixpanel.2.js';b=d.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);c._i=[];c.init=function(a,d,f){var b=c;"undefined"!==typeof f?b=c[f]=[]:f="mixpanel";g="disable track track_links track_forms register register_once unregister identify name_tag set_config".split(" ");for(e=0;e<
-			 g.length;e++)(function(a){b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}})(g[e]);c._i.push([a,d,f])};window.mixpanel=c})(document,[]);
-		 mixpanel.init("0bcb88433b14ef6b75051931803e10e3");</script>
-	 <!-- end Mixpanel -->
- </head>
-
- <div class="navbar navbar-fixed-top">
-	 <div class="navbar-inner">
-		 <div class="container">
-			 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				 <span class="icon-bar"></span>
-				 <span class="icon-bar"></span>
-				 <span class="icon-bar"></span>
-			 </a>
-			 <%= link_to "CourseBacon", "/", :class => "brand" %>
-			 <div class="nav-collapse pull-right">
-				 <ul class="nav">
-					 <li><%= link_to "Home", "/" %></li>
-					 <li><%= link_to "Courses", :controller => "courses" %></li>
-					 <li><%= link_to "Books", :controller => "books" %></li>
-					 <li><%= link_to "Tutorials", :controller => "tutorials" %></li>
-					 <li class="divider-vertical"></li>
-					 <% if current_user %>
-						 <li><%= link_to "Dashboard", "/dashboard" %></li>
-						 <li><%= link_to "Sign Out", signout_path %></li>
-					 <% else %>
-						 <li><%= link_to "Sign In", "/sign-up" %></li>
-					 <% end %>
-				 </ul>
-			 </div>
-		 </div>
-	 </div>
- </div>
-
- <body>
-	 <!--Social Media is below-->
-	 <div id="fb-root"></div>
-	 <script>(function(d, s, id) {
-		   var js, fjs = d.getElementsByTagName(s)[0];
-		     if (d.getElementById(id)) return;
-		       js = d.createElement(s); js.id = id;
-		         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=271024399642949";
-			   fjs.parentNode.insertBefore(js, fjs);
-			   }(document, 'script', 'facebook-jssdk'));
-		   </script>
-	 <!-- Place this render call where appropriate -->
-	 <script type="text/javascript">
-		 (function() {
-		  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		  po.src = 'https://apis.google.com/js/plusone.js';
-		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		  })();
-	  </script>
-	  <!--Social Media is above-->
-
-	  <!--Validation is below-->
-	  <div class="validation span12">
-		  <div class"row-fluid">
-			  <% flash.each do |key, value|%>
-				  <div class="alert">
-					  <div id="flash_<%= key %>">
-						  <%= value %>
-					  </div>
-				  </div>
-			  <% end %>
-		  </div>
-	  </div>
-	  <!--Validation is above-->
-
-	  <div class="container-fluid">
-		  <div class"row-fluid">
-			  <div class="span10">
-
-				  <%= yield %>
-
-			  </div>
-
-			  <div class="span2">
-				  <h2>Pssst</h2>
-				  <% if current_user %>
-					  <p>
-					  Hey <%= current_user.name.titleize %>, we just wanted to tell you that you rock.
-					  <br />
-					  <br />
-					  Seriously, you do.
-					  </p>
-				  <% elsif %>
-					  <p>
-					  Stop being a rebel. 
-					  <br />
-					  <br />
-					  Join our community and help others discover the best learning resources.
-					  </p>
-					  <%= link_to 'Take 15 seconds and Sign Up', '/sign-up', :class => 'btn btn-danger' %>
-				  <% end %>
-
-				  <br />
-				  <br />
-				  <br />
-				  <div class="twitter">
-					  <a href="https://twitter.com/share" class="twitter-share-button" data-via="coursebacon" data-count="none">Tweet</a>
-					  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-				  </div>
-				  <div class="facebook">
-					  <div class="fb-like" data-href="https://www.facebook.com/pages/CourseBacon/303429439728466" data-send="true" data-layout="button_count" data-width="200" data-show-faces="true"></div>
-				  </div>
-				  <div class="gplus">
-					  <g:plusone size="medium" annotation="inline" width="200" href="https://plus.google.com/b/103121074654450310803"></g:plusone>
-				  </div>
-				  <%= image_tag"be-social.png" %>
-			  </div>
-			  <div class"row-fluid">
-				  <div class="span12 footer">
-					  <div class="well">
-						  <p class="pull-left">
-						  Stats:
-						  <%= @course_num %> courses | 
-						  <%= @tutorial_num %> tutorials | 
-						  <%= @book_num %> books | 
-						  <%= @tweet_num %> people talking about them
-						  </p>
-						  <p class="pull-right">
-						  <%= link_to "What's all this Bacon about?", about_path %> | 
-						  <%= link_to "Terms of Services", tos_path %> | 
-						  Made from 100% recycled pixels | Not tested on animals
-						  </p>
-					  </div>
-				  </div>
-			  </div>
-		  </body>
-	  </html>
+		 <!-- Google Plus is below -->
+		 <script type="text/javascript">
+			 (function() {
+			  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			  po.src = 'https://apis.google.com/js/plusone.js';
+			  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			  })();</script>
+		  <!-- Google Plus is above -->
+	  </body>
+  </html>

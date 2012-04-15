@@ -23,7 +23,9 @@ class BooksController < ApplicationController
 		@book = Book.find(params[:id])
 		@book_reviews = BookReview.find_all_by_book_id(@book.id).reverse
 
-		@tweets = Tweet.find_all_by_book_id(@book.id)
+		#@tweets = Tweet.find_all_by_book_id(@book.id)
+
+		@tweets = Tweet.where("tweets.updated_at <= (SELECT MIN(t.updated_at) FROM tweets AS t WHERE t.from_user=tweets.from_user)").order("tweets.tweet_id desc").find_all_by_book_id(@book.id).first(108)
 
 		respond_to do |format|
 			format.html # show.html.erb
