@@ -1,1 +1,8 @@
 Fix: popular_course inside applications helper
+find a way to have popular#{page} instead of popular_course, popular_book, popular_tutorial
+
+allow the star to sort by most popular
+
+add search functionality
+
+
