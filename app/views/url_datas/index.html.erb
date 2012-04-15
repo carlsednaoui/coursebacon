@@ -7,6 +7,7 @@
 			<th>Tutorial Id</th>
 			<th>Google Backlinks</th>
 			<th>SEOMoz Backlinks</th>
+			<th>Calculated Backlinks</th>
 			<th>MozRank</th>
 		</tr>
 	</thead>
@@ -18,6 +19,7 @@
 				<td><%= data.tutorial_id %></td>
 				<td><%= data.google_backlinks %></td>
 				<td><%= data.moz_backlinks %></td>
+				<td><%= ((data.moz_backlinks.to_f + data.google_backlinks.to_f) / @backlinks) *100 %></td>
 				<td><%= data.mozrank %></td>
 			</tr>
 		<% end %>

@@ -1,7 +1,6 @@
 <tr>
 	<td><%= link_to Tweet.find_all_by_book_id(book.id).count, book_path(book) %></td>
 	<td><%= link_to truncate(book.title , :length => 60), book_path(book) %></td>
-	<td><%= link_to truncate(book.url , :length => 20), book_path(book) %></td>
 	<td><%= link_to truncate(book.main_topic , :length => 20), book_path(book) %></td>
 	<% if current_user %>
 		<% if book.user == current_user %>
