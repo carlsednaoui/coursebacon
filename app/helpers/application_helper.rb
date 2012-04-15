@@ -42,6 +42,7 @@ module ApplicationHelper
 		return course_popularity
 	end
 
+	#all_backlinks method (below) is currently not used. Integrate this when I want to have weighted averages based on URL backlinks.
 	def all_backlinks
 		@data = UrlData.all
 
