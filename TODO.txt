@@ -1,0 +1,1 @@
+Fix: popular_course inside applications helper

@@ -1,5 +1,5 @@
 <tr>
-	<td><%= link_to Tweet.find_all_by_course_id(course.id).count, course_path(course) %></td>
+	<td><%= link_to popular_course(course.id), course_path(course) %></td>
 	<td><%= link_to truncate(course.title , :length => 60), course_path(course) %></td>
 	<td><%= link_to truncate(course.offered_by , :length => 20), course_path(course) %></td>
 	<td><%= link_to truncate(course.main_topic , :length => 20), course_path(course) %></td>
