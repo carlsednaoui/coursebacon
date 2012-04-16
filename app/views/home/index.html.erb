@@ -33,3 +33,24 @@
 		<%= link_to image_tag("cpigs.png", :size => "695x220"), "/sign-up" %>
 	<% end %>
 </div>
+
+<!-- JS code to get user location is below -->
+<script type='text/javascript' src="http://codejoust.github.com/session.js/session-0.4.js"></script>
+<!-- JS code to get user location is above -->
+
+<script>
+	$(document).ready(function() {
+		var currentDate = new Date();
+
+		var msg = "It's " + currentDate.getSimpleTime() + 
+		" in " +  window.session.location.address.city + 
+		" and it's time for you to learn something new! ";
+
+		document.getElementById('user_location_and_time').innerHTML = msg;
+	});
+
+
+	Date.prototype.getSimpleTime = function() {
+		return ( this.getHours()%12 || 12 ) + ':' + ( this.getMinutes()<10 ? '0':'' ) + this.getMinutes() + ( this.getHours()<12 ? 'am':'pm' );
+	};
+</script>

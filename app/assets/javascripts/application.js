@@ -8,5 +8,4 @@
 //= require jquery_ujs
 //= require jquery.tools.min.js
 //= require twitter/bootstrap
-//= require get-user-location-and-time
 //= require_tree .
