@@ -25,11 +25,11 @@
 </div>
 
 <br />
-<br />
-<br />
-<br />
-<% if current_user %>
-<%= link_to image_tag("cpigs.png", :size => "695x220"), "/dashboard" %>
-<% else %>
-<%= link_to image_tag("cpigs.png", :size => "695x220"), "/sign-up" %>
-<% end %>
+
+<div class="top-space">
+	<% if current_user %>
+		<%= link_to image_tag("cpigs.png", :size => "695x220"), "/dashboard" %>
+	<% else %>
+		<%= link_to image_tag("cpigs.png", :size => "695x220"), "/sign-up" %>
+	<% end %>
+</div>
