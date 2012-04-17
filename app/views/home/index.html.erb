@@ -2,7 +2,7 @@
 <% content_for :description, "Find the best free online courses, books and tutorials. Explore our extensive list of reviews of online courses, tutorials and books for free." %>
 <h1 class="nice-header-font">Find the best online courses, tutorials and books.</h1>
 <br />
-<h2 class="nice-header-font" id="user_location_and_time">We're here to help you satisfy your learning thirst.</h2>
+<h2 class="nice-header-font" id="user_time">We're here to help you satisfy your learning thirst.</h2>
 <br />
 <br />
 <br />
@@ -34,19 +34,13 @@
 	<% end %>
 </div>
 
-<!-- JS code to get user location is below -->
-<script type='text/javascript' src="http://codejoust.github.com/session.js/session-0.4.js"></script>
-<!-- JS code to get user location is above -->
-
 <script>
 	$(document).ready(function() {
 		var currentDate = new Date();
 
-		var msg = "It's " + currentDate.getSimpleTime() + 
-		", you're in " +  window.session.location.address.city + 
-		"... it's time for you to learn something new!";
+		var msg = "It's " + currentDate.getSimpleTime() + ". Yup, it's time for you to learn something new!";
 
-		document.getElementById('user_location_and_time').innerHTML = msg;
+		document.getElementById('user_time').innerHTML = msg;
 	});
 
 
