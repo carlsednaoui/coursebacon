@@ -1,9 +1,9 @@
-#TODO make it work with https
-
 require 'net/http'
 require 'uri'
 
 courses = Course.all
+books = Book.all
+tutorials = Tutorial.all
 #course = Course.find_by_id(28) #https
 course = Course.find_by_id(1) #302
 
@@ -42,7 +42,7 @@ def one_course(course)
 			uri = URI.parse("#{course.url}")
 			res = Net::HTTP.get_response(uri)
 			puts res.code
-			puts res.header.to_hash["location"].first #to delete after
+			puts res.header.to_hash["location"].first
 		rescue => error
 			puts "****ERROR!"
 			puts error
@@ -50,5 +50,7 @@ def one_course(course)
 	end
 end
 
+all_courses(books)
+all_courses(tutorials)
 all_courses(courses)
 #one_course(course)
