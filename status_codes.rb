@@ -24,7 +24,6 @@ def get_link_status(item)
   else
     puts "What are you doing? You need to give me an array or a course, book or tutorial."
   end
-  #item.class.to_s == "Array" ? item.each { |i| status(i) } : status(item) <=== Jeff's way to condence this method
 end
 
 
