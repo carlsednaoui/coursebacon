@@ -38,7 +38,7 @@ Course.create(:title => 'Circuits & Electronics', :url => 'https://6002x.mitx.mi
 
 Course.create(:title => 'CodeYear', :url => 'http://codeyear.com/', :offered_by => 'Codecademy', :main_topic => 'Intro to Programming', :description => "Sign up for Code Year to start receiving a new interactive programming lesson every Monday. You'll be building apps and websites before you know it! Past lessons are available online.", :user_id => 1)
 
-Course.create(:title => 'Learn JavaScript with Codecademy', :url => 'http://www.codecademy.com/languages/javascript', :offered_by => 'Codecademy', :main_topic => 'JavaScript', :description => "JavaScript is a programming language that grew out of a need to add interactivity to web sites within the browser. It has since evolved into an incredibly versatile language that is used for both client-side (within the browser) and server-side (code that serves web pages to users) applications.", :user_id => 1)
+Course.create(:title => 'Learn JavaScript with Codecademy', :url => 'http://www.codecademy.com/courses/type/all/lang/javascript', :offered_by => 'Codecademy', :main_topic => 'JavaScript', :description => "JavaScript is a programming language that grew out of a need to add interactivity to web sites within the browser. It has since evolved into an incredibly versatile language that is used for both client-side (within the browser) and server-side (code that serves web pages to users) applications.", :user_id => 1)
 
 Course.create(:title => 'Google Code University', :url => 'http://code.google.com/edu/', :offered_by => 'Google', :main_topic => 'Programming', :description => "Google Code University (GCU) does not require registration and materials are free to use.", :user_id => 1)
 
@@ -101,8 +101,6 @@ Course.create(:title => 'Machine Learning', :url => 'https://www.coursera.org/co
 Course.create(:title => 'Scalling Rails', :url => 'http://railslab.newrelic.com/scaling-rails', :offered_by => 'New Relic', :main_topic => 'Ruby on Rails', :description => "Welcome to the Scaling Rails Screencast Series produced by Gregg Pollack and supported by New Relic. In the next few weeks we're going to bring you 13 educational videos, teaching you just about everything you need to know to create a Rails application that can scale", :user_id => 1)
 
 Tutorial.create(:title => 'How Not To Sort By Average Rating', :url => 'http://evanmiller.org/how-not-to-sort-by-average-rating.html', :offered_by => 'Evan Miller', :main_topic => 'Algorithms', :description => "PROBLEM: You are a web programmer. You have users. Your users rate stuff on your site. You want to put the highest-rated stuff at the top and lowest-rated at the bottom. You need some sort of 'score' to sort by. SOLUTION: Read tutorial", :user_id => 1)
-
-Course.create(:title => 'JavaScript', :url => 'http://www.codecademy.com/courses', :offered_by => 'Codecademy', :main_topic => 'JavaScript', :description => "JavaScript is a programming language that grew out of a need to add interactivity to web sites within the browser. It has since evolved into an incredibly versatile language that is used for both client-side (within the browser) and server-side (code that serves web pages to users) applications.", :user_id => 1)
 
 Course.create(:title => 'HTML Fundamentals', :url => 'http://www.codecademy.com/courses/html-one-o-one', :offered_by => 'Codecademy', :main_topic => 'HTML', :description => "This course will introduce you to HTML and its amazing use in our everyday internet life.", :user_id => 1)
 

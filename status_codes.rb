@@ -1,0 +1,54 @@
+#TODO make it work with https
+
+require 'net/http'
+require 'uri'
+
+courses = Course.all
+#course = Course.find_by_id(28) #https
+course = Course.find_by_id(1) #302
+
+def all_courses(courses)
+	courses.each do |course|
+		if course.url.starts_with?("https://")
+			next
+		else
+			begin
+				uri = URI.parse("#{course.url}")
+				res = Net::HTTP.get_response(uri)
+				unless res.code.eql? "200"
+					puts course.title
+					puts course.url
+					puts res.code
+					puts res.header.to_hash["location"].first
+				end
+			rescue => error
+				puts "****ERROR!"
+				puts error
+			end
+		end
+	end
+end
+
+
+def one_course(course)
+	if course.url.starts_with?("https://")
+		puts course.title
+		puts course.url
+		puts "fuck an https"
+	else
+		puts course.title
+		puts course.url
+		begin
+			uri = URI.parse("#{course.url}")
+			res = Net::HTTP.get_response(uri)
+			puts res.code
+			puts res.header.to_hash["location"].first #to delete after
+		rescue => error
+			puts "****ERROR!"
+			puts error
+		end
+	end
+end
+
+all_courses(courses)
+#one_course(course)
