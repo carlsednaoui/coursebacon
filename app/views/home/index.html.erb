@@ -8,43 +8,43 @@
 <br />
 
 <div class="row-fluid">
-	<div class="span3">
-		<%= link_to image_tag("tv.gif", :size => "110x100"), '/courses', :class => 'span2 btn btn-large' %>
-		<%= link_to 'Explore Courses', '/courses', :class => 'btn btn-large btn-primary span2' %>
-	</div>
-	<div class="span3">
-		<%= link_to image_tag("ninja.gif"), '/tutorials', :class => 'span2 btn btn-large' %>
-		<%= link_to 'Discover Tutorials', '/tutorials', :class => 'btn btn-large btn-info span2' %>
-	</div>
+  <div class="span3">
+    <%= link_to image_tag("tv.gif", :size => "110x100"), '/courses', :class => 'span2 btn btn-large' %>
+    <%= link_to 'Explore Courses', '/courses', :class => 'btn btn-large btn-primary span2' %>
+  </div>
+  <div class="span3">
+    <%= link_to image_tag("ninja.gif"), '/tutorials', :class => 'span2 btn btn-large' %>
+    <%= link_to 'Discover Tutorials', '/tutorials', :class => 'btn btn-large btn-info span2' %>
+  </div>
 
 
-	<div class="span3">
-		<%= link_to image_tag("book.gif"), '/books', :class => 'span2 btn btn-large' %>
-		<%= link_to 'Find E-Books', '/books', :class => 'btn btn-large btn-success span2' %>
-	</div>
+  <div class="span3">
+    <%= link_to image_tag("book.gif"), '/books', :class => 'span2 btn btn-large' %>
+    <%= link_to 'Find E-Books', '/books', :class => 'btn btn-large btn-success span2' %>
+  </div>
 </div>
 
 <br />
 
 <div class="top-space">
-	<% if current_user %>
-		<%= link_to image_tag("cpigs.png", :size => "695x220"), "/dashboard" %>
-	<% else %>
-		<%= link_to image_tag("cpigs.png", :size => "695x220"), "/sign-up" %>
-	<% end %>
+  <% if current_user %>
+    <%= link_to image_tag("cpigs.png", :size => "695x220"), "/dashboard" %>
+  <% else %>
+    <%= link_to image_tag("cpigs.png", :size => "695x220"), "/sign-up" %>
+  <% end %>
 </div>
 
 <script>
-	$(document).ready(function() {
-		var currentDate = new Date();
+  $(document).ready(function() {
+    var currentDate = new Date();
 
-		var msg = "It's " + currentDate.getSimpleTime() + ". Yup, it's time for you to learn something new!";
+    var msg = "It's " + currentDate.getSimpleTime() + ". Yup, it's time for you to learn something new!";
 
-		document.getElementById('user_time').innerHTML = msg;
-	});
+    document.getElementById('user_time').innerHTML = msg;
+  });
 
 
-	Date.prototype.getSimpleTime = function() {
-		return ( this.getHours()%12 || 12 ) + ':' + ( this.getMinutes()<10 ? '0':'' ) + this.getMinutes() + ( this.getHours()<12 ? 'am':'pm' );
-	};
+  Date.prototype.getSimpleTime = function() {
+    return ( this.getHours()%12 || 12 ) + ':' + ( this.getMinutes()<10 ? '0':'' ) + this.getMinutes() + ( this.getHours()<12 ? 'am':'pm' );
+  };
 </script>
