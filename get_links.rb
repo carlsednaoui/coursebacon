@@ -4,7 +4,11 @@ tutorials = Tutorial.all
 
 def get_links(*args)
   args.each do |item|
-    puts item.class.to_s == "Array" ? identify_items(item) : "Please pass in an array" 
+    if item.class.to_s == "Array" 
+      identify_items(item)
+    else
+      puts "Please pass in an array"
+    end
   end
 end
 
