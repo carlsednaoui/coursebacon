@@ -7,17 +7,16 @@ all_urls = ["http://juixe.com/techknow/index.php/2007/01/22/ruby-class-tutorial/
 
 def get_site_data(url)
   doc = Nokogiri::HTML(open("#{url}"))
-  puts "url: " + url
-  puts "title: " + doc.css("title").text
-  puts "description: " + doc.xpath("//meta[@name='description']/@content").to_s
-  print "description a la carl: " 
-  puts doc.css("meta[name='description']").first['content']
-  puts "site: " + URI(url).host
+  title = doc.css("title").text
+  description = doc.xpath("//meta[@name='description']/@content").to_s
+  host = URI(url).host
+  puts ""
+  puts "Tutorial.create(:title => '#{title}', :url => '#{url}', :offered_by => '#{host}', :main_topic => '', :description => '#{description}', :user_id => 1)"
   puts ""
 end
 
-
 all_urls.each do |url|
   get_site_data(url)
-  break
 end
+
+#description= doc.css("meta[name='description']").first['content'].to_s
