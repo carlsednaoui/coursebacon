@@ -10,11 +10,14 @@ def get_site_data(url)
   puts "url: " + url
   puts "title: " + doc.css("title").text
   puts "description: " + doc.xpath("//meta[@name='description']/@content").to_s
-  puts "site: " + URI.parse(url).host
+  print "description a la carl: " 
+  puts doc.css("meta[name='description']").first['content']
+  puts "site: " + URI(url).host
   puts ""
 end
 
 
 all_urls.each do |url|
   get_site_data(url)
+  break
 end
