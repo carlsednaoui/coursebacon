@@ -1,0 +1,17 @@
+<h1>Sneaky you, how did you find this page?</h1>
+<br/>
+<h3>Well, since you're here already, let's look at some stats.</h3>
+
+<br/>
+<br/>
+
+<p>CourseBacon currently has <%= @users.count %> active users.</p>
+<p>Here is how these users chose to sign up:</p>
+<ul>
+  <li>Twitter: <%= @twitter_users %></li>
+  <li>Facebook: <%= @facebook_users %></li>
+  <li>Email Address: <%= @indentity_users %></li>
+</ul>
+
+<p>The last CourseBacon user signed up at this time: <%= @last_created %></p>
+
