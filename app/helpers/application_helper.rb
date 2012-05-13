@@ -6,6 +6,38 @@ module ApplicationHelper
 		link_to title, {:sort => column, :direction => direction}, {:class => css_class}
 	end
 
+
+	# To finish and polish + implement
+	def popularity(id, item)
+	  if item == "course"
+	    tweets = Tweet.find_all_by_course_id(id).count
+	    if UrlData.find_by_course_id(id).nil?
+	      links = 0
+	    else
+	      links = UrlData.find_by_course_id(id).moz_backlinks.to_f + UrlData.find_by_course_id(id).google_backlinks.to_f
+	    end
+	  elsif item == "tutorial"
+	    tweets = Tweet.find_all_by_tutorial_id(id).count
+	    if UrlData.find_by_tutorial_id(id).nil?
+	      links = 0
+	    else
+	      links = UrlData.find_by_tutorial_id(id).moz_backlinks.to_f + UrlData.find_by_tutorial_id(id).google_backlinks.to_f
+	    end
+	  elsif item == "book"
+	    tweets = Tweet.find_all_by_book_id(id).count
+	    if UrlData.find_by_book_id(id).nil?
+	      links = 0
+	    else
+	      links = UrlData.find_by_book_id(id).moz_backlinks.to_f + UrlData.find_by_book_id(id).google_backlinks.to_f
+	    end
+
+	    popularity = tweets + links
+	    popularity = popularity.to_i
+	    return popularity
+	  end
+	end
+
+
 	def popular_course(course_id) 
 		tweets = Tweet.find_all_by_course_id(course_id).count
 		if UrlData.find_by_course_id(course_id).nil?
