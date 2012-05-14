@@ -30,7 +30,6 @@
 	<%= link_to "CourseBacon", "/", :class => "brand" %>
 	<div class="nav-collapse pull-right">
 	  <ul class="nav span7">
-	    <li><%= link_to "Home", "/" %></li>
 	    <li><%= link_to "Courses", :controller => "courses" %></li>
 	    <li><%= link_to "Books", :controller => "books" %></li>
 	    <li><%= link_to "Tutorials", :controller => "tutorials" %></li>
@@ -42,7 +41,7 @@
 	      <li><%= link_to "Sign In", "/sign-up" %></li>
 	    <% end %>
 	    <li class="divider-vertical"></li>
-	    <form class="navbar-form pull-right">
+	    <form class="navbar-form pull-right span2">
 	      <input type="text" id="st-search-input" class="st-search-input" placeholder="Press 'Enter' to Search" />
 	    </form>
 	    <div id="st-results-container"></div>
