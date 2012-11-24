@@ -3,7 +3,7 @@ class CreateTweets < ActiveRecord::Migration
     create_table :tweets do |t|
       t.string :from_user
       t.string :tweet_text
-      t.column :tweet_id, :bigint, :limit => 8
+      t.column :tweet_id, :bigint
       t.integer :course_id
       t.integer :book_id
       t.integer :tutorial_id
