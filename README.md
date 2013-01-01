@@ -29,13 +29,13 @@ Add curriculums (which are a collection of Resources) - dont show full curriculu
 
 ## Other
 
-1) add search functionality
-2) allow users to modify item descriptions (like a wiki)
-3) allow the star to sort by most popular
-4) find a way to have popular#{page} instead of popular_course, popular_book, popular_tutorial - Basically, I need to create a "popularity" function
+1. add search functionality
+2. allow users to modify item descriptions (like a wiki)
+3. allow the star to sort by most popular
+4. find a way to have popular#{page} instead of popular_course, popular_book, popular_tutorial - Basically, I need to create a "popularity" function
 
-def popularity(item)
---
----
---
-end
+> def popularity(item)
+> --
+> ---
+> --
+> end
