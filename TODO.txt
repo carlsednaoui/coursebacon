@@ -9,3 +9,29 @@ def popularity(item)
 --
 end
 
+====================================
+
+Nov. 24 TODO:
+
+Merge all 3 tables (course, book, tutorial) - call this table "Resource" with a resrouce type (for course, book, etc)
+
+=======
+$ rails g migration Resource title:string url:string description:text user_id:integer tags:????? curriculum_id:integer type:string
+
+$ rails g migration Curriculum ??resources??belonging??to??curriculum
+
+curriculum has many resources
+a resource CAN belong to a curriculum
+========
+
+Get rid of "BookReview, CourseReview, etc" and instead have "Comments" with a resource ID
+
+Add tags that autocomplete (for resources)
+
+Add a way to "thumb up" or "tumb down" resources or curriculums
+
+Add a way to "add to favorite (or add to learning list)"
+
+Resource score = Backlinks (need to update nightly - google, seomoz), Tweets (nightly), tumbs, 
+
+Add curriculums (which are a collection of Resources) - dont show full curriculum unless user is signed in
