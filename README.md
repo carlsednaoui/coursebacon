@@ -2,16 +2,8 @@
 
 ## Round 1
 
-Merge all 3 tables (course, book, tutorial) - call this table "Resource" with a resrouce type (for course, book, etc)
-
-__Migrations__
-
-$ rails g migration Resource title:string url:string description:text user_id:integer tags:????? curriculum_id:integer type:string
-
-$ rails g migration Curriculum ??resources??belonging??to??curriculum
-
 curriculum has many resources
-a resource CAN belong to a curriculum
+a resource can belong to a curriculum
 
 ## Round 2
 
@@ -22,6 +14,8 @@ Add tags that autocomplete (for resources)
 Add a way to "thumb up" or "tumb down" resources or curriculums
 
 Add a way to "add to favorite (or add to learning list)"
+
+Allow for anonymous submission
 
 Resource score = Backlinks (need to update nightly - google, seomoz), Tweets (nightly), tumbs, 
 

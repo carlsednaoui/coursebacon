@@ -11,106 +11,126 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120413005759) do
+ActiveRecord::Schema.define(:version => 20130102000210) do
 
   create_table "book_reviews", :force => true do |t|
-    t.integer  "book_id"
-    t.integer  "user_id"
-    t.text     "review"
-    t.boolean  "recommended"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "book_id"
+    t.integer   "user_id"
+    t.text      "review"
+    t.boolean   "recommended"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "books", :force => true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.string   "main_topic"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "title"
+    t.string    "url"
+    t.string    "main_topic"
+    t.text      "description"
+    t.integer   "user_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "course_reviews", :force => true do |t|
-    t.integer  "course_id"
-    t.integer  "user_id"
-    t.text     "review"
-    t.boolean  "recommended"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "course_id"
+    t.integer   "user_id"
+    t.text      "review"
+    t.boolean   "recommended"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "courses", :force => true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.string   "main_topic"
-    t.string   "offered_by"
-    t.text     "description"
-    t.text     "syllabus"
+    t.string    "title"
+    t.string    "url"
+    t.string    "main_topic"
+    t.string    "offered_by"
+    t.text      "description"
+    t.text      "syllabus"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "user_id"
+  end
+
+  create_table "curriculums", :force => true do |t|
+    t.string   "name"
+    t.string   "topic"
+    t.integer  "number_of_resources"
+    t.string   "completion_time"
+    t.integer  "level"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "identities", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
+    t.string    "name"
+    t.string    "email"
+    t.string    "password_digest"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "resources", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "description"
+    t.integer  "user_id"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tutorial_reviews", :force => true do |t|
-    t.integer  "tutorial_id"
-    t.integer  "user_id"
-    t.text     "review"
-    t.boolean  "recommended"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "tutorial_id"
+    t.integer   "user_id"
+    t.text      "review"
+    t.boolean   "recommended"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "tutorials", :force => true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.string   "main_topic"
-    t.string   "offered_by"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "title"
+    t.string    "url"
+    t.string    "main_topic"
+    t.string    "offered_by"
+    t.text      "description"
+    t.integer   "user_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "tweets", :force => true do |t|
-    t.string   "from_user"
-    t.string   "tweet_text"
-    t.integer  "tweet_id"
-    t.integer  "course_id"
-    t.integer  "book_id"
-    t.integer  "tutorial_id"
-    t.boolean  "tweet_already_exists"
-    t.boolean  "tweet_posted_to_reviews"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "from_user"
+    t.string    "tweet_text"
+    t.integer   "tweet_id"
+    t.integer   "course_id"
+    t.integer   "book_id"
+    t.integer   "tutorial_id"
+    t.boolean   "tweet_already_exists"
+    t.boolean   "tweet_posted_to_reviews"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "url_data", :force => true do |t|
-    t.integer  "course_id"
-    t.integer  "book_id"
-    t.integer  "tutorial_id"
-    t.integer  "mozrank"
-    t.integer  "moz_backlinks"
-    t.integer  "google_backlinks"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "course_id"
+    t.integer   "book_id"
+    t.integer   "tutorial_id"
+    t.integer   "mozrank"
+    t.integer   "moz_backlinks"
+    t.integer   "google_backlinks"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "provider"
+    t.string    "uid"
+    t.string    "name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
 end
