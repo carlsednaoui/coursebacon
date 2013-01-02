@@ -2,8 +2,7 @@
 
 ## Round 1
 
-curriculum has many resources
-a resource can belong to a curriculum
+Done
 
 ## Round 2
 

@@ -6,6 +6,7 @@ class CreateResources < ActiveRecord::Migration
       t.text :description
       t.integer :user_id
       t.string :type
+      t.integer :curriculum_id
 
       t.timestamps
     end

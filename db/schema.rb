@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130102000210) do
     t.text     "description"
     t.integer  "user_id"
     t.string   "type"
+    t.integer  "curriculum_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
