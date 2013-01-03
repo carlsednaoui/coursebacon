@@ -3,6 +3,7 @@ Coursebacon::Application.routes.draw do
 
 	resources :url_datas
 
+	resources :resources
 	resources :books
 	resources :book_reviews
 	resources :tutorials
