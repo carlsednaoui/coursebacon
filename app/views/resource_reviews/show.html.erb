@@ -1,0 +1,28 @@
+<h1>Review</h1>
+
+<p>
+  <b>Resource:</b>
+  <%= link_to @resource.title, @resource %>
+</p>
+
+<p>
+<b>Resource Recommended</b><br>
+<% if @resource_review.recommended.eql? true%>
+Yes
+<% else %>
+No
+<% end %>
+</p>
+
+
+<p>
+  <b>Resource review</b><br>
+  <%= @resource_review.review %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', resource_reviews_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_resource_review_path(@resource_review), :class => 'btn' %>
+  <%= link_to 'Delete', resource_review_path(@resource_review), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
+<%= link_to "Go Back To Resource", @resource, :class => "btn btn-primary btn-large" %>

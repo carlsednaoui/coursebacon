@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130102000210) do
+ActiveRecord::Schema.define(:version => 20130120143721) do
 
   create_table "book_reviews", :force => true do |t|
     t.integer   "book_id"
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(:version => 20130102000210) do
     t.integer  "number_of_resources"
     t.string   "completion_time"
     t.integer  "level"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "identities", :force => true do |t|
@@ -71,15 +71,24 @@ ActiveRecord::Schema.define(:version => 20130102000210) do
     t.timestamp "updated_at"
   end
 
+  create_table "resource_reviews", :force => true do |t|
+    t.integer  "resource_id"
+    t.integer  "user_id"
+    t.text     "review"
+    t.boolean  "recommended"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "resources", :force => true do |t|
     t.string   "title"
     t.string   "url"
     t.text     "description"
     t.integer  "user_id"
-    t.string   "type"
+    t.string   "resource_type"
     t.integer  "curriculum_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "tutorial_reviews", :force => true do |t|
@@ -113,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20130102000210) do
     t.boolean   "tweet_posted_to_reviews"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.integer   "resource_id"
   end
 
   create_table "url_data", :force => true do |t|
@@ -124,6 +134,7 @@ ActiveRecord::Schema.define(:version => 20130102000210) do
     t.integer   "google_backlinks"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.integer   "resource_id"
   end
 
   create_table "users", :force => true do |t|

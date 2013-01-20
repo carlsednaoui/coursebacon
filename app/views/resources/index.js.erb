@@ -1,0 +1,6 @@
+$('#resources').append('<%= j render(@resources) %>');
+<% if (@resources.current_page < @resources.num_pages) %>
+        $('.pagination').replaceWith('<%= j paginate(@resources) %>');
+<% else %>
+        $('.pagination').remove();
+<% end %>

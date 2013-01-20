@@ -1,0 +1,15 @@
+<tr>
+  <td><%= link_to popular_resource(resource.id), resource_path(resource) %></td>
+  <td><%= link_to truncate(resource.title , :length => 60), resource_path(resource) %></td>
+  <td><%= link_to truncate(resource.title , :length => 20), resource_path(resource) %></td>
+  <% if current_user %>
+    <% if resource.user == current_user %>
+      <td>
+        <%= link_to 'Edit', edit_resource_path(resource), :class => 'btn btn-mini' %>
+        <%= link_to 'Delete', resource_path(resource), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+      </td>
+    <% else %>
+      <td><%= link_to truncate(resource.url, :length => 25), resource_path(resource) %></td>
+    <% end %>
+  <% end %>
+</tr>

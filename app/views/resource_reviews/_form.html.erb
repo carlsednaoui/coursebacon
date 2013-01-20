@@ -1,0 +1,44 @@
+<br />
+<%= form_for @resource_review, :html => { :class => 'form-vertical' } do |f| %>
+	<% if @resource_review.errors.any? %>
+		<div class="alert">
+			<h2><%= pluralize(@resource_review.errors.count, "error") %> prohibited this resource review from being saved:</h2>
+
+			<ul>
+				<% @resource_review.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Review</legend>
+
+	<% f.number_field :user_id, :class => 'text_area span8' %>
+	<% f.number_field :resource_id, :class => 'text_area span8' %>
+
+	<div class="control-group">
+		<%= f.label :recommended, "Would you recommend this resource?", :class => 'control-label' %>
+		<div class="controls">
+			<%= f.select :recommended, {"Yes" => true, "No" => false}, :selected => true %>
+		</div>
+	</div>
+	<br />
+
+    <div class="control-group">
+      <%= f.label :review, :class => 'control-label' %>
+      <div class="controls">
+	      <%= f.text_area :review, :class => 'text_area span7', :placeholder => "Feel free to include WHY you liked or disliked this resource and WHAT you've learned. Also, feel free to link to any resource project you created.", :rows => 12 %>
+      </div>
+    </div>
+
+	<input type="hidden" name="user_id" value="<%= current_user.id %>" />
+	<input type="hidden" name="resource_id" value="<%= @resource_review.resource_id %>" /><br />
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', resource_reviews_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

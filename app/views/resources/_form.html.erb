@@ -1,0 +1,55 @@
+<%= form_for @resource, :html => { :class => 'form-inline' } do |f| %>
+
+  <% if @resource.errors.any? %>
+    <div class="alert">
+      <h2><%= pluralize(@resource.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+      <ul>
+        <% @resource.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Resource</legend>
+
+    <div class="control-group">
+      <%= f.label :title, "Resource Title", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, :class => 'text_field' %>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <%= f.label :url, "Resource URL", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :url, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :resource_type, "Resource Type", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :resource_type, :class => 'text_field' %>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <%= f.label :description, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :description, :class => 'text_area span8', :rows => 8 %>
+      </div>
+    </div>
+
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', resources_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

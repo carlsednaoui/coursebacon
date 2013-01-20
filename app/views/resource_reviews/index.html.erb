@@ -1,0 +1,23 @@
+<h1>Reviews You've Added to ResourceBacon</h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Review</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @resource_reviews.each do |resource_review| %>
+			<tr>
+				<td><%= link_to truncate(resource_review.review, :length => 65), resource_review_path(resource_review) %></td>
+
+				<td>
+					<%= link_to 'Edit', edit_resource_review_path(resource_review), :class => 'btn btn-mini' %>
+					<%= link_to 'Destroy', resource_review_path(resource_review), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to "Go To Dashboard", dashboard_path, :class => "btn btn-primary btn-large" %>

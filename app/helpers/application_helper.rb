@@ -37,6 +37,17 @@ module ApplicationHelper
 	  end
 	end
 
+	def popular_resource(resource_id) 
+		tweets = Tweet.find_all_by_resource_id(resource_id).count
+		if UrlData.find_by_resource_id(resource_id).nil?
+			links = 0
+		else
+			links = UrlData.find_by_resource_id(resource_id).moz_backlinks.to_f + UrlData.find_by_resource_id(resource_id).google_backlinks.to_f
+		end
+		resource_popularity = tweets + links
+		resource_popularity = resource_popularity.to_i
+		return resource_popularity
+	end
 
 	def popular_course(course_id) 
 		tweets = Tweet.find_all_by_course_id(course_id).count
