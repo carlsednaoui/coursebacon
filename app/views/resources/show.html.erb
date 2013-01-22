@@ -26,44 +26,12 @@
 
 <br />
 
-<p>
 
-<p>
-<b>Resource reviews</b><br>
-<% if @resource_reviews.eql? []%>
-  Sweet Guacamole Batman! No one has reviewed this resource yet - why don't you take the leap?
-  <br />
-  <br/>
-  No seriously, why not?
-<% else %>
-  <ul>
-    <% @resource_reviews.each do |resource_review| %>
-      <% if resource_review.recommended.eql? true%>
-        <div class="alert alert-success"><%= resource_review.review %></div>
-      <% else %>
-        <div class="alert alert-error"><%= resource_review.review %></div>
-      <% end %>
-    <% end %>
-  </ul>
-<% end %>
-</p>
+<!-- 
+<%= render "resource_reviews" %>
+<%= render "resource_tweets" %>
+ -->
 
-<% if current_user %>
-  <%= link_to 'Submit a Resource Review', new_resource_review_path(:resource_id => @resource.id, :user_id => current_user.id), :class => "btn btn-primary" %>
-<% elsif %>
-  <%= link_to 'Submit a Resource Review', '/sign-up', :class => 'btn btn-primary' %>
-<% end %>
-
-<!--Show Tweets-->
-<% unless @tweets.eql? [] %>
-  <div class="top-space tweets">
-    <h2><small>People talking about this resource:</small></h2>
-    <% @tweets.each do |tweet| %>
-      <%= link_to image_tag("http://api.twitter.com/1/users/profile_image/#{tweet.from_user}.mini", :size => "48x48", :title => tweet.tweet_text), "http://www.twitter.com/#{tweet.from_user}/status/#{tweet.tweet_id}", :target => "_blank" %>
-    <% end %>
-  </div>
-<% end %>
-<!--Show Tweets-->
 
 <div class="form-actions">
   <%= link_to 'Back', resources_path, :class => 'btn'  %>

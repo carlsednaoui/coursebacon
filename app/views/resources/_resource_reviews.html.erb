@@ -1,0 +1,25 @@
+<p>
+<b>Resource reviews</b><br>
+<% if @resource_reviews.eql? []%>
+  Sweet Guacamole Batman! No one has reviewed this resource yet - why don't you take the leap?
+  <br />
+  <br/>
+  No seriously, why not?
+<% else %>
+  <ul>
+    <% @resource_reviews.each do |resource_review| %>
+      <% if resource_review.recommended.eql? true%>
+        <div class="alert alert-success"><%= resource_review.review %></div>
+      <% else %>
+        <div class="alert alert-error"><%= resource_review.review %></div>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+</p>
+
+<% if current_user %>
+  <%= link_to 'Submit a Resource Review', new_resource_review_path(:resource_id => @resource.id, :user_id => current_user.id), :class => "btn btn-primary" %>
+<% elsif %>
+  <%= link_to 'Submit a Resource Review', '/sign-up', :class => 'btn btn-primary' %>
+<% end %>

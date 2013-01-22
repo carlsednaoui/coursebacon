@@ -1,9 +1,5 @@
 # To do
 
-## Round 1
-
-Done
-
 ## Round 2
 
 Get rid of "BookReview, CourseReview, etc" and instead have "Comments" with a resource ID

@@ -34,6 +34,7 @@
 	    <li><%= link_to "Courses", :controller => "courses" %></li>
 	    <li><%= link_to "Books", :controller => "books" %></li>
 	    <li><%= link_to "Tutorials", :controller => "tutorials" %></li>
+      <li><%= link_to "Resources", :controller => "resources" %></li>
 	    <li class="divider-vertical"></li>
 	    <% if current_user %>
 	      <li><%= link_to "Dashboard", "/dashboard" %></li>
@@ -42,7 +43,7 @@
 	      <li><%= link_to "Sign In", "/sign-up" %></li>
 	    <% end %>
 	    <li class="divider-vertical"></li>
-	    <form class="navbar-form pull-right span2">
+	    <form class="navbar-form pull-right span1">
 	      <input type="text" id="st-search-input" class="st-search-input" placeholder="Press 'Enter' to Search" />
 	    </form>
 	    <div id="st-results-container"></div>

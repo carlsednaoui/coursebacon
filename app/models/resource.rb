@@ -17,4 +17,9 @@ class Resource < ActiveRecord::Base
   def to_param
     "#{id}-#{title.parameterize}"
   end
+
+  def self.resources_type
+    ["Book", "Course", "Tutorial"]
+  end
+
 end
