@@ -6,7 +6,11 @@ class ResourcesController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @resources = Resource.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
+    if params[:tag]
+      @resources = Resource.tagged_with(params[:tag]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
+    else
+      @resources = Resource.order(sort_column + " " + sort_direction).page(params[:page]).per(10)    
+    end
   end
 
   def show

@@ -8,7 +8,9 @@ class Resource < ActiveRecord::Base
 
   validates_uniqueness_of :url
 
-  attr_accessible :resource_type, :title, :url, :description
+  attr_accessible :resource_type, :title, :url, :description, :tag_list
+
+  acts_as_taggable
 
   belongs_to :user
   has_and_belongs_to_many :curriculums

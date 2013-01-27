@@ -13,6 +13,8 @@ Coursebacon::Application.routes.draw do
 	resources :course_reviews
 	resources :identities
 
+	get 'tags/:tag', to: 'resources#index', as: :tag
+
 	match "/dashboard" => "dashboard#index"
 	match "/about" => "home#about"
 	match "/team" => "home#about"

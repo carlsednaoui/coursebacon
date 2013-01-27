@@ -9,7 +9,11 @@
         <%= link_to 'Delete', resource_path(resource), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
       </td>
     <% else %>
-      <td><%= link_to truncate(resource.url, :length => 25), resource_path(resource) %></td>
+      <td><%= raw resource.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
     <% end %>
+    <% else %>
+    <td>
+      Sign in to view tags
+    </td>
   <% end %>
 </tr>
