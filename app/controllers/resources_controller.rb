@@ -5,6 +5,8 @@ class ResourcesController < ApplicationController
 
   helper_method :sort_column, :sort_direction
 
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
+
   def index
     if params[:tag]
       @resources = Resource.tagged_with(params[:tag]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)

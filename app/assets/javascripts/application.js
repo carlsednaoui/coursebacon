@@ -4,8 +4,10 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
-//= require jquery_ujs
-//= require jquery.tools.min.js
-//= require twitter/bootstrap
+// = require jquery
+// = require jquery_ujs
+// = require jquery.tools.min.js
+// = require autocomplete-rails.js
+// = require jquery-ui.min.js
+// = require twitter/bootstrap
 //= require_tree .

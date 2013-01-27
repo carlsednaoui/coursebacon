@@ -12,7 +12,10 @@ gem 'twitter'
 gem 'linkscape'
 gem 'nokogiri'
 gem 'heroku'
+
+# Tags and autocomplete gems
 gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'rails3-jquery-autocomplete'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

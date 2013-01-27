@@ -10,7 +10,7 @@ class Resource < ActiveRecord::Base
 
   attr_accessible :resource_type, :title, :url, :description, :tag_list
 
-  acts_as_taggable
+  acts_as_taggable_on :tags
 
   belongs_to :user
   has_and_belongs_to_many :curriculums

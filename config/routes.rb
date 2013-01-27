@@ -3,7 +3,6 @@ Coursebacon::Application.routes.draw do
 
 	resources :url_datas
 
-	resources :resources
 	resources :resource_reviews
 	resources :books
 	resources :book_reviews
@@ -14,6 +13,10 @@ Coursebacon::Application.routes.draw do
 	resources :identities
 
 	get 'tags/:tag', to: 'resources#index', as: :tag
+
+	resources :resources do
+		get :autocomplete_tag_name, :on => :collection
+	end
 
 	match "/dashboard" => "dashboard#index"
 	match "/about" => "home#about"
