@@ -54,6 +54,7 @@
 	<%= link_to 'Submit a Book Review', '/sign-up', :class => 'btn btn-primary' %>
 <% end %>
 
+<% if false %>
 <!--Show Tweets-->
 <% unless @tweets.eql? [] %>
 	<div class="top-space tweets">
@@ -64,6 +65,7 @@
 	</div>
 <% end %>
 <!--Show Tweets-->
+<% end %>
 
 <div class="form-actions">
   <%= link_to 'Back', books_path, :class => 'btn'  %>
